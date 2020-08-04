@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: ccims-eclipse-plugin-data;singleton:=true
+Automatic-Module-Name: ccims-eclipse-plugin-data
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel,
+ de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl,
+ de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.uml2.types;visibility:=reexport
+Bundle-ActivationPolicy: lazy

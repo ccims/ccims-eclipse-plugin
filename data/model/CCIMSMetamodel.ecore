@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="CCIMSMetamodel" nsURI="http:///CCIMSMetamodel.ecore" nsPrefix="CCIMSMetamodel">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="CCIMS-Metamodel"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterfaces" ordered="false"
+        upperBound="-1" eType="#//Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedInterfaces" ordered="false"
+        upperBound="-1" eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CrossComponentIssue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textBody" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOpen" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" ordered="false"
+        upperBound="-1" eType="#//Developer" eOpposite="#//Developer/assignedIssues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representedIssues" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedComponents" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" ordered="false"
+        upperBound="-1" eType="#//Label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedIssues" ordered="false"
+        upperBound="-1" eType="#//CrossComponentIssue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedInterface" ordered="false"
+        eType="#//Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Developer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="developedComponents" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedIssues" ordered="false"
+        upperBound="-1" eType="#//CrossComponentIssue" eOpposite="#//CrossComponentIssue/assignees"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Issue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" ordered="false"
+        lowerBound="1" eType="#//IssueManagementSystem" eOpposite="#//IssueManagementSystem/storedIssues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedComponent" ordered="false"
+        lowerBound="1" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueManagementSystem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationUri" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storedIssues" ordered="false"
+        upperBound="-1" eType="#//Issue" containment="true" eOpposite="#//Issue/location"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CrossComponentIssueManagementSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueRootLocations" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//IssueManagementSystem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managedCroCoIssues" ordered="false"
+        upperBound="-1" eType="#//CrossComponentIssue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" ordered="false"
+        upperBound="-1" eType="#//Label" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="developers" ordered="false"
+        upperBound="-1" eType="#//Developer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" ordered="false"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationUri" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+</ecore:EPackage>

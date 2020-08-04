@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2020 Tim Neumann
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Datamodel -->
+      <package
+            uri="http://ccims.rss.iste.unistuttgart.de/eclipseplugin/data"
+            class="de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage"
+            genModel="model/Datamodel.genmodel"/>
+   </extension>
+
+</plugin>
