@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_e09kkMzhEeqzzKE4oGybwg" name="ccims-eclipse-plugin">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_v4IRAMzpEeqzzKE4oGybwg" annotatedElement="_1ai4EMzmEeqzzKE4oGybwg">
+    <body>Datamodel
+Generted with Eclipse EMF.
+</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_2p3qkMzpEeqzzKE4oGybwg" annotatedElement="_hBcJkMzpEeqzzKE4oGybwg">
+    <body>Generated with Eclipse Parsley
+and manually implemented.
+</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_9R8KwMzpEeqzzKE4oGybwg" annotatedElement="_RdukEMzpEeqzzKE4oGybwg">
+    <body>Currently: Filter for Issues
+Manually implemented.</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_9tawYMzqEeqzzKE4oGybwg" annotatedElement="_UJlYQMznEeqzzKE4oGybwg">
+    <body>EMF Resource + ResourceFactory Implementation?
+Not yet implemented. 
+Manual Implementation</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_fWsNEMzrEeqzzKE4oGybwg" annotatedElement="__Yr8MMzmEeqzzKE4oGybwg">
+    <body>GraphQL Api
+Use the filters provided here instead of reimplementing them in java?</body>
+  </ownedComment>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_e7PywMzhEeqzzKE4oGybwg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Component" xmi:id="_gvy5kMzhEeqzzKE4oGybwg" name="CCIMS-Backend">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_LsJ48MznEeqzzKE4oGybwg" name="" client="_gvy5kMzhEeqzzKE4oGybwg" supplier="__Yr8MMzmEeqzzKE4oGybwg" contract="__Yr8MMzmEeqzzKE4oGybwg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_cR25MMziEeqzzKE4oGybwg" name="ccims-eclipse-plugin">
+    <packagedElement xmi:type="uml:Component" xmi:id="_1ai4EMzmEeqzzKE4oGybwg" name="data"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_UJlYQMznEeqzzKE4oGybwg" name="api-binding">
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ytkg0MznEeqzzKE4oGybwg" client="_UJlYQMznEeqzzKE4oGybwg" supplier="__Yr8MMzmEeqzzKE4oGybwg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_J-yP0Mz1EeqzzKE4oGybwg" client="_UJlYQMznEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_RdukEMzpEeqzzKE4oGybwg" name="logic">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_O0W3oMz1EeqzzKE4oGybwg" client="_RdukEMzpEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_hBcJkMzpEeqzzKE4oGybwg" name="ui">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_inC1cMzpEeqzzKE4oGybwg" client="_hBcJkMzpEeqzzKE4oGybwg" supplier="_UJlYQMznEeqzzKE4oGybwg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_lKx9gMzpEeqzzKE4oGybwg" client="_hBcJkMzpEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_p8LP8MzpEeqzzKE4oGybwg" client="_hBcJkMzpEeqzzKE4oGybwg" supplier="_RdukEMzpEeqzzKE4oGybwg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="__Yr8MMzmEeqzzKE4oGybwg" name="CCIMS-Api"/>
+</uml:Model>
