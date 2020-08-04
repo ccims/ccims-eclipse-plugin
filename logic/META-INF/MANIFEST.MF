@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ccims-eclipse-plugin-logic
+Bundle-SymbolicName: ccims-eclipse-plugin-logic
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: ccims.eclipse.plugin.logic
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: ccims-eclipse-plugin-data;bundle-version="1.0.0"
+Export-Package: de.unistuttgart.iste.rss.ccims.eclipseplugin.logic.filter
