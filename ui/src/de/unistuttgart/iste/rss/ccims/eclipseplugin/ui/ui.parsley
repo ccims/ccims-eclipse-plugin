@@ -1,0 +1,93 @@
+import org.eclipse.emf.common.util.URI
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views.IssueListView
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelFactory
+import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views.DebugMasterView
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label
+
+module de.unistuttgart.iste.rss.ccims.eclipseplugin.ui {
+	bindings {
+		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider	
+		type TableViewerContentProvider -> IssueViewsFilteredContentProvider
+	}
+	
+	parts {
+		viewpart de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.issueList {
+			viewname "IssueList"
+			viewclass IssueListView
+			viewcategory de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.category
+		}
+		
+		viewpart de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.debugMasterView {
+			viewname "DebugMaster"
+			viewclass DebugMasterView
+			viewcategory de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.category
+		}
+	}
+	
+	labelProvider {
+		text {
+			CrossComponentIssue -> title
+			Component -> name
+			CrossComponentIssueManagementSystem -> "CCIMS at " + locationUri
+			Developer -> name
+			Interface -> name
+			Issue -> "#" + id
+			IssueManagementSystem -> name
+			Label -> name
+		}
+		image{
+			CrossComponentIssue -> {
+				LabelIconProvider.getIconFor(it, 4);
+			}
+		}
+	}
+	
+	tableLabelProvider {
+		image {
+			CrossComponentIssue:title -> {
+				LabelIconProvider.getIconFor(it, 2);
+			}
+		}
+	}
+	
+	tableFeaturesProvider {
+		features {
+			CrossComponentIssue -> title, labels
+		}
+	}
+	
+	configurator {
+		eClass {
+			IssueListView -> {
+				return CcimsDatamodelPackage.eINSTANCE.crossComponentIssue
+			}
+		}
+		
+		resourceURI {
+			IssueListView -> {
+				return URI.createFileURI(System.getProperty("user.home") + "/MyIssues.issues");
+			}
+			
+			DebugMasterView -> {
+				return URI.createFileURI(System.getProperty("user.home") + "/MyIssues.issues");
+			}
+		}
+	}
+
+	resourceManager {
+		initializeResource {
+			it.getContents += CcimsDatamodelFactory.eINSTANCE.createCrossComponentIssueManagementSystem
+		}
+	}
+}

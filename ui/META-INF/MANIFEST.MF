@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ccims-eclipse-plugin-ui
+Bundle-ManifestVersion: 2
+Bundle-Name: ccims-eclipse-plugin-ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ccims-eclipse-plugin-ui; singleton:=true
+Bundle-Activator: de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.Activator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.emf.parsley.views,
+ org.eclipse.xtext.xbase.lib,
+ ccims-eclipse-plugin-data;bundle-version="1.0.0",
+ ccims-eclipse-plugin-logic;bundle-version="1.0.0"
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-11

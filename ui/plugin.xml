@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.category"
+            class="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.UiExecutableExtensionFactory:de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views.IssueListView"
+            id="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.issueList"
+            name="IssueList"
+            restorable="true">
+      </view>
+      <view
+            category="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.category"
+            class="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.UiExecutableExtensionFactory:de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views.DebugMasterView"
+            id="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.debugMasterView"
+            name="DebugMaster"
+            restorable="true">
+      </view>
+      <category
+            id="de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.category"
+            name="CCIMS">
+      </category>
+   </extension>
+</plugin>
