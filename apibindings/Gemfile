@@ -1,0 +1,1 @@
+gem "graphql_java_gen", :path => "graphql_java_gen"

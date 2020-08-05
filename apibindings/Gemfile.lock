@@ -1,0 +1,18 @@
+PATH
+  remote: graphql_java_gen
+  specs:
+    graphql_java_gen (0.2.0)
+      graphql_schema (~> 0.1.1)
+
+GEM
+  specs:
+    graphql_schema (0.1.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  graphql_java_gen!
+
+BUNDLED WITH
+   2.1.4

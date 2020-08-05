@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ccoms-eclipse-plugin-apiBindings
+Bundle-SymbolicName: ccims-eclipse-plugin-apiBindings
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: ccoms.eclipse.plugin.apiBindings
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.google.gson;bundle-version="2.8.2"
+Export-Package: de.unistuttgart.iste.rss.ccims.eclipseplugin.apibindings
