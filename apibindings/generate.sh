@@ -17,10 +17,13 @@ if [ $# -ne 0 ] ;then
   fail "Not expecting any argument"
 fi
 
-originalSupportSrc="$dir/graphql_java_gen/support/src/main/java"
+gitSubmodule="$dir/graphql_java_gen"
+originalSupportSrc="$gitSubmodule/support/src/main/java"
+originalLicense="$gitSubmodule/LICENSE.txt"
 srcSupportFolder="$dir/src-support"
 rm -rf "$srcSupportFolder"
 cp -r -T "$originalSupportSrc" "$srcSupportFolder"
+cp "$originalLicense" "$srcSupportFolder"
 
 srcGenFolder="$dir/src-gen"
 pkgFolder="$srcGenFolder/de/unistuttgart/iste/rss/ccims/eclipseplugin/apibindings"

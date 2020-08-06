@@ -2,7 +2,10 @@
 Generated java bindings for the ccims graphql api.
 
 ## Submodule
-The folder [`graphql_java_gen`](graphql_java_gen) is a git submodule.
+The folder [`graphql_java_gen`](graphql_java_gen) is a git submodule with the actual generator code and some necessary java classes.
+
+These java classes are copied to src-support during the generation.
+The copyright and license notice for these files can be found at [src-support/LICENSE.txt](src-support/LICENSE.txt).
 
 ## Generating
 ### Preparations
@@ -26,4 +29,4 @@ In these cases just delete the import.
 
 ### Using nix
 You can use `nix-shell` to perform the preparations and the generation by running:
-`nix-shell --run bash generate.sh`
+`nix-shell --run "bash generate.sh"`
