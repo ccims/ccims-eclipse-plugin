@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='CCIMS-Metamodel'"
+ *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='ccims-datamodel'"
  * @generated
  */
 public interface CcimsDatamodelPackage extends EPackage {
@@ -204,22 +204,13 @@ public interface CcimsDatamodelPackage extends EPackage {
 	int CROSS_COMPONENT_ISSUE__ASSIGNEES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Represented Issues</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES = 4;
-
-	/**
 	 * The feature id for the '<em><b>Concerned Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS = 5;
+	int CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Labels</b></em>' reference list.
@@ -228,7 +219,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE__LABELS = 6;
+	int CROSS_COMPONENT_ISSUE__LABELS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Linked Issues</b></em>' reference list.
@@ -237,7 +228,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE__LINKED_ISSUES = 7;
+	int CROSS_COMPONENT_ISSUE__LINKED_ISSUES = 6;
 
 	/**
 	 * The feature id for the '<em><b>Concerned Interface</b></em>' reference.
@@ -246,7 +237,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE__CONCERNED_INTERFACE = 8;
+	int CROSS_COMPONENT_ISSUE__CONCERNED_INTERFACE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Cross Component Issue</em>' class.
@@ -255,7 +246,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_FEATURE_COUNT = 9;
+	int CROSS_COMPONENT_ISSUE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Cross Component Issue</em>' class.
@@ -322,116 +313,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 	int DEVELOPER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueImpl <em>Issue</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueImpl
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getIssue()
-	 * @generated
-	 */
-	int ISSUE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Concerned Component</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__CONCERNED_COMPONENT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__ID = 2;
-
-	/**
-	 * The number of structural features of the '<em>Issue</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Issue</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueManagementSystemImpl <em>Issue Management System</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueManagementSystemImpl
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getIssueManagementSystem()
-	 * @generated
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Location Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI = 1;
-
-	/**
-	 * The feature id for the '<em><b>Stored Issues</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM__STORED_ISSUES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Issue Management System</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Issue Management System</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_MANAGEMENT_SYSTEM_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.LabelImpl <em>Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,7 +320,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 6;
+	int LABEL = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -476,16 +357,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getCrossComponentIssueManagementSystem()
 	 * @generated
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM = 7;
-
-	/**
-	 * The feature id for the '<em><b>Issue Root Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS = 0;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Managed Cro Co Issues</b></em>' containment reference list.
@@ -494,7 +366,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES = 1;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Labels</b></em>' containment reference list.
@@ -503,7 +375,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS = 2;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
@@ -512,7 +384,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__DEVELOPERS = 3;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__DEVELOPERS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -521,7 +393,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__COMPONENTS = 4;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__COMPONENTS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Location Uri</b></em>' attribute.
@@ -530,7 +402,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI = 5;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI = 4;
 
 	/**
 	 * The number of structural features of the '<em>Cross Component Issue Management System</em>' class.
@@ -539,7 +411,7 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM_FEATURE_COUNT = 6;
+	int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Cross Component Issue Management System</em>' class.
@@ -670,17 +542,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 	EReference getCrossComponentIssue_Assignees();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getRepresentedIssues <em>Represented Issues</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Represented Issues</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getRepresentedIssues()
-	 * @see #getCrossComponentIssue()
-	 * @generated
-	 */
-	EReference getCrossComponentIssue_RepresentedIssues();
-
-	/**
 	 * Returns the meta object for the reference list '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getConcernedComponents <em>Concerned Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -768,92 +629,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 	EReference getDeveloper_AssignedIssues();
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue <em>Issue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Issue</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue
-	 * @generated
-	 */
-	EClass getIssue();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Location</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getLocation()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EReference getIssue_Location();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getConcernedComponent <em>Concerned Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concerned Component</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getConcernedComponent()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EReference getIssue_ConcernedComponent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue#getId()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Id();
-
-	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem <em>Issue Management System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Issue Management System</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem
-	 * @generated
-	 */
-	EClass getIssueManagementSystem();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getName()
-	 * @see #getIssueManagementSystem()
-	 * @generated
-	 */
-	EAttribute getIssueManagementSystem_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getLocationUri <em>Location Uri</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Location Uri</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getLocationUri()
-	 * @see #getIssueManagementSystem()
-	 * @generated
-	 */
-	EAttribute getIssueManagementSystem_LocationUri();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getStoredIssues <em>Stored Issues</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Stored Issues</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem#getStoredIssues()
-	 * @see #getIssueManagementSystem()
-	 * @generated
-	 */
-	EReference getIssueManagementSystem_StoredIssues();
-
-	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,17 +658,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCrossComponentIssueManagementSystem();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getIssueRootLocations <em>Issue Root Locations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Issue Root Locations</em>'.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getIssueRootLocations()
-	 * @see #getCrossComponentIssueManagementSystem()
-	 * @generated
-	 */
-	EReference getCrossComponentIssueManagementSystem_IssueRootLocations();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getManagedCroCoIssues <em>Managed Cro Co Issues</em>}'.
@@ -1068,14 +832,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 		EReference CROSS_COMPONENT_ISSUE__ASSIGNEES = eINSTANCE.getCrossComponentIssue_Assignees();
 
 		/**
-		 * The meta object literal for the '<em><b>Represented Issues</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES = eINSTANCE.getCrossComponentIssue_RepresentedIssues();
-
-		/**
 		 * The meta object literal for the '<em><b>Concerned Components</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1142,74 +898,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 		EReference DEVELOPER__ASSIGNED_ISSUES = eINSTANCE.getDeveloper_AssignedIssues();
 
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueImpl <em>Issue</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueImpl
-		 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getIssue()
-		 * @generated
-		 */
-		EClass ISSUE = eINSTANCE.getIssue();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ISSUE__LOCATION = eINSTANCE.getIssue_Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Concerned Component</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ISSUE__CONCERNED_COMPONENT = eINSTANCE.getIssue_ConcernedComponent();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__ID = eINSTANCE.getIssue_Id();
-
-		/**
-		 * The meta object literal for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueManagementSystemImpl <em>Issue Management System</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.IssueManagementSystemImpl
-		 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getIssueManagementSystem()
-		 * @generated
-		 */
-		EClass ISSUE_MANAGEMENT_SYSTEM = eINSTANCE.getIssueManagementSystem();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE_MANAGEMENT_SYSTEM__NAME = eINSTANCE.getIssueManagementSystem_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Location Uri</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI = eINSTANCE.getIssueManagementSystem_LocationUri();
-
-		/**
-		 * The meta object literal for the '<em><b>Stored Issues</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ISSUE_MANAGEMENT_SYSTEM__STORED_ISSUES = eINSTANCE.getIssueManagementSystem_StoredIssues();
-
-		/**
 		 * The meta object literal for the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.LabelImpl <em>Label</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1236,14 +924,6 @@ public interface CcimsDatamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM = eINSTANCE.getCrossComponentIssueManagementSystem();
-
-		/**
-		 * The meta object literal for the '<em><b>Issue Root Locations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS = eINSTANCE.getCrossComponentIssueManagementSystem_IssueRootLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>Managed Cro Co Issues</b></em>' containment reference list feature.

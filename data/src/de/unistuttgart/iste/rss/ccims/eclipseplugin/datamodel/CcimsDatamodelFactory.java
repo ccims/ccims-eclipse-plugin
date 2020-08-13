@@ -66,24 +66,6 @@ public interface CcimsDatamodelFactory extends EFactory {
 	Developer createDeveloper();
 
 	/**
-	 * Returns a new object of class '<em>Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Issue</em>'.
-	 * @generated
-	 */
-	Issue createIssue();
-
-	/**
-	 * Returns a new object of class '<em>Issue Management System</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Issue Management System</em>'.
-	 * @generated
-	 */
-	IssueManagementSystem createIssueManagementSystem();
-
-	/**
 	 * Returns a new object of class '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

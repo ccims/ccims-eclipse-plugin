@@ -68,8 +68,6 @@ public class CcimsDatamodelFactoryImpl extends EFactoryImpl implements CcimsData
 			case CcimsDatamodelPackage.INTERFACE: return createInterface();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE: return createCrossComponentIssue();
 			case CcimsDatamodelPackage.DEVELOPER: return createDeveloper();
-			case CcimsDatamodelPackage.ISSUE: return createIssue();
-			case CcimsDatamodelPackage.ISSUE_MANAGEMENT_SYSTEM: return createIssueManagementSystem();
 			case CcimsDatamodelPackage.LABEL: return createLabel();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM: return createCrossComponentIssueManagementSystem();
 			default:
@@ -119,28 +117,6 @@ public class CcimsDatamodelFactoryImpl extends EFactoryImpl implements CcimsData
 	public Developer createDeveloper() {
 		DeveloperImpl developer = new DeveloperImpl();
 		return developer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Issue createIssue() {
-		IssueImpl issue = new IssueImpl();
-		return issue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IssueManagementSystem createIssueManagementSystem() {
-		IssueManagementSystemImpl issueManagementSystem = new IssueManagementSystemImpl();
-		return issueManagementSystem;
 	}
 
 	/**

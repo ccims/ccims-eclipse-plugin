@@ -10,8 +10,6 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssu
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -64,20 +62,6 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	private EClass developerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass issueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass issueManagementSystemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,7 +257,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssue_RepresentedIssues() {
+	public EReference getCrossComponentIssue_ConcernedComponents() {
 		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -283,7 +267,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssue_ConcernedComponents() {
+	public EReference getCrossComponentIssue_Labels() {
 		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -293,7 +277,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssue_Labels() {
+	public EReference getCrossComponentIssue_LinkedIssues() {
 		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -303,18 +287,8 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssue_LinkedIssues() {
-		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getCrossComponentIssue_ConcernedInterface() {
-		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(8);
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -363,86 +337,6 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EClass getIssue() {
-		return issueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIssue_Location() {
-		return (EReference)issueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIssue_ConcernedComponent() {
-		return (EReference)issueEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIssue_Id() {
-		return (EAttribute)issueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIssueManagementSystem() {
-		return issueManagementSystemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIssueManagementSystem_Name() {
-		return (EAttribute)issueManagementSystemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIssueManagementSystem_LocationUri() {
-		return (EAttribute)issueManagementSystemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIssueManagementSystem_StoredIssues() {
-		return (EReference)issueManagementSystemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getLabel() {
 		return labelEClass;
 	}
@@ -473,7 +367,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssueManagementSystem_IssueRootLocations() {
+	public EReference getCrossComponentIssueManagementSystem_ManagedCroCoIssues() {
 		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -483,7 +377,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssueManagementSystem_ManagedCroCoIssues() {
+	public EReference getCrossComponentIssueManagementSystem_Labels() {
 		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -493,7 +387,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssueManagementSystem_Labels() {
+	public EReference getCrossComponentIssueManagementSystem_Developers() {
 		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -503,7 +397,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssueManagementSystem_Developers() {
+	public EReference getCrossComponentIssueManagementSystem_Components() {
 		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -513,18 +407,8 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 	 * @generated
 	 */
 	@Override
-	public EReference getCrossComponentIssueManagementSystem_Components() {
-		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getCrossComponentIssueManagementSystem_LocationUri() {
-		return (EAttribute)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -569,7 +453,6 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 		createEAttribute(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__TEXT_BODY);
 		createEAttribute(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__IS_OPEN);
 		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__ASSIGNEES);
-		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES);
 		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS);
 		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__LABELS);
 		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__LINKED_ISSUES);
@@ -580,21 +463,10 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 		createEAttribute(developerEClass, DEVELOPER__NAME);
 		createEReference(developerEClass, DEVELOPER__ASSIGNED_ISSUES);
 
-		issueEClass = createEClass(ISSUE);
-		createEReference(issueEClass, ISSUE__LOCATION);
-		createEReference(issueEClass, ISSUE__CONCERNED_COMPONENT);
-		createEAttribute(issueEClass, ISSUE__ID);
-
-		issueManagementSystemEClass = createEClass(ISSUE_MANAGEMENT_SYSTEM);
-		createEAttribute(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__NAME);
-		createEAttribute(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI);
-		createEReference(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__STORED_ISSUES);
-
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__NAME);
 
 		crossComponentIssueManagementSystemEClass = createEClass(CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM);
-		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS);
 		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES);
 		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS);
 		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__DEVELOPERS);
@@ -648,7 +520,6 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 		initEAttribute(getCrossComponentIssue_TextBody(), theTypesPackage.getString(), "textBody", null, 1, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCrossComponentIssue_IsOpen(), theTypesPackage.getBoolean(), "isOpen", null, 1, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssue_Assignees(), this.getDeveloper(), this.getDeveloper_AssignedIssues(), "assignees", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCrossComponentIssue_RepresentedIssues(), this.getIssue(), null, "representedIssues", null, 1, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssue_ConcernedComponents(), this.getComponent(), null, "concernedComponents", null, 1, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssue_Labels(), this.getLabel(), null, "labels", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssue_LinkedIssues(), this.getCrossComponentIssue(), null, "linkedIssues", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -659,21 +530,10 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 		initEAttribute(getDeveloper_Name(), theTypesPackage.getString(), "name", null, 1, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDeveloper_AssignedIssues(), this.getCrossComponentIssue(), this.getCrossComponentIssue_Assignees(), "assignedIssues", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(issueEClass, Issue.class, "Issue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIssue_Location(), this.getIssueManagementSystem(), this.getIssueManagementSystem_StoredIssues(), "location", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getIssue_ConcernedComponent(), this.getComponent(), null, "concernedComponent", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIssue_Id(), theTypesPackage.getInteger(), "id", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(issueManagementSystemEClass, IssueManagementSystem.class, "IssueManagementSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIssueManagementSystem_Name(), theTypesPackage.getString(), "name", null, 1, 1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIssueManagementSystem_LocationUri(), theTypesPackage.getString(), "locationUri", null, 1, 1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getIssueManagementSystem_StoredIssues(), this.getIssue(), this.getIssue_Location(), "storedIssues", null, 0, -1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Name(), theTypesPackage.getString(), "name", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(crossComponentIssueManagementSystemEClass, CrossComponentIssueManagementSystem.class, "CrossComponentIssueManagementSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCrossComponentIssueManagementSystem_IssueRootLocations(), this.getIssueManagementSystem(), null, "issueRootLocations", null, 1, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssueManagementSystem_ManagedCroCoIssues(), this.getCrossComponentIssue(), null, "managedCroCoIssues", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssueManagementSystem_Labels(), this.getLabel(), null, "labels", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCrossComponentIssueManagementSystem_Developers(), this.getDeveloper(), null, "developers", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -700,7 +560,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
 		  (this,
 		   source,
 		   new String[] {
-			   "originalName", "CCIMS-Metamodel"
+			   "originalName", "ccims-datamodel"
 		   });
 	}
 

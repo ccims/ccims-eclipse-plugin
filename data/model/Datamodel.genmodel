@@ -20,7 +20,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//CrossComponentIssue/textBody"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//CrossComponentIssue/isOpen"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/assignees"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/representedIssues"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/concernedComponents"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/labels"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/linkedIssues"/>
@@ -31,21 +30,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Developer/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Developer/assignedIssues"/>
     </genClasses>
-    <genClasses ecoreClass="Datamodel.ecore#//Issue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Issue/location"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Issue/concernedComponent"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Issue/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Datamodel.ecore#//IssueManagementSystem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//IssueManagementSystem/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//IssueManagementSystem/locationUri"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//IssueManagementSystem/storedIssues"/>
-    </genClasses>
     <genClasses ecoreClass="Datamodel.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Label/name"/>
     </genClasses>
     <genClasses ecoreClass="Datamodel.ecore#//CrossComponentIssueManagementSystem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssueManagementSystem/issueRootLocations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssueManagementSystem/managedCroCoIssues"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssueManagementSystem/labels"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssueManagementSystem/developers"/>

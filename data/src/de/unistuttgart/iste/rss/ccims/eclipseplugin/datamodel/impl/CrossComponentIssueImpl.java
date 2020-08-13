@@ -8,7 +8,6 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 
 import java.util.Collection;
@@ -40,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getTextBody <em>Text Body</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#isIsOpen <em>Is Open</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getAssignees <em>Assignees</em>}</li>
- *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getRepresentedIssues <em>Represented Issues</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getConcernedComponents <em>Concerned Components</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getLabels <em>Labels</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueImpl#getLinkedIssues <em>Linked Issues</em>}</li>
@@ -126,16 +124,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected EList<Developer> assignees;
-
-	/**
-	 * The cached value of the '{@link #getRepresentedIssues() <em>Represented Issues</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRepresentedIssues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Issue> representedIssues;
 
 	/**
 	 * The cached value of the '{@link #getConcernedComponents() <em>Concerned Components</em>}' reference list.
@@ -284,19 +272,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public EList<Issue> getRepresentedIssues() {
-		if (representedIssues == null) {
-			representedIssues = new EObjectResolvingEList<Issue>(Issue.class, this, CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES);
-		}
-		return representedIssues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Component> getConcernedComponents() {
 		if (concernedComponents == null) {
 			concernedComponents = new EObjectResolvingEList<Component>(Component.class, this, CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS);
@@ -415,8 +390,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 				return isIsOpen();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__ASSIGNEES:
 				return getAssignees();
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES:
-				return getRepresentedIssues();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS:
 				return getConcernedComponents();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__LABELS:
@@ -451,10 +424,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__ASSIGNEES:
 				getAssignees().clear();
 				getAssignees().addAll((Collection<? extends Developer>)newValue);
-				return;
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES:
-				getRepresentedIssues().clear();
-				getRepresentedIssues().addAll((Collection<? extends Issue>)newValue);
 				return;
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS:
 				getConcernedComponents().clear();
@@ -495,9 +464,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__ASSIGNEES:
 				getAssignees().clear();
 				return;
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES:
-				getRepresentedIssues().clear();
-				return;
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS:
 				getConcernedComponents().clear();
 				return;
@@ -530,8 +496,6 @@ public class CrossComponentIssueImpl extends MinimalEObjectImpl.Container implem
 				return isOpen != IS_OPEN_EDEFAULT;
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__ASSIGNEES:
 				return assignees != null && !assignees.isEmpty();
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES:
-				return representedIssues != null && !representedIssues.isEmpty();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS:
 				return concernedComponents != null && !concernedComponents.isEmpty();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE__LABELS:

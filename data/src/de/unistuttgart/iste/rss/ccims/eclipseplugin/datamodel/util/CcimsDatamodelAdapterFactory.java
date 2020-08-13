@@ -92,14 +92,6 @@ public class CcimsDatamodelAdapterFactory extends AdapterFactoryImpl {
 				return createDeveloperAdapter();
 			}
 			@Override
-			public Adapter caseIssue(Issue object) {
-				return createIssueAdapter();
-			}
-			@Override
-			public Adapter caseIssueManagementSystem(IssueManagementSystem object) {
-				return createIssueManagementSystemAdapter();
-			}
-			@Override
 			public Adapter caseLabel(Label object) {
 				return createLabelAdapter();
 			}
@@ -180,34 +172,6 @@ public class CcimsDatamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeveloperAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue <em>Issue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue
-	 * @generated
-	 */
-	public Adapter createIssueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem <em>Issue Management System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem
-	 * @generated
-	 */
-	public Adapter createIssueManagementSystemAdapter() {
 		return null;
 	}
 

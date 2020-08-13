@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getIssueRootLocations <em>Issue Root Locations</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getManagedCroCoIssues <em>Managed Cro Co Issues</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getLabels <em>Labels</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getDevelopers <em>Developers</em>}</li>
@@ -35,18 +34,6 @@ public interface CrossComponentIssueManagementSystem extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2020 Tim Neumann";
-
-	/**
-	 * Returns the value of the '<em><b>Issue Root Locations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issue Root Locations</em>' containment reference list.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage#getCrossComponentIssueManagementSystem_IssueRootLocations()
-	 * @model containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	EList<IssueManagementSystem> getIssueRootLocations();
 
 	/**
 	 * Returns the value of the '<em><b>Managed Cro Co Issues</b></em>' containment reference list.

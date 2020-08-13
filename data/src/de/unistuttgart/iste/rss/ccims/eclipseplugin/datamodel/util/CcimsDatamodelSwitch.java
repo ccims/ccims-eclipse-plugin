@@ -98,18 +98,6 @@ public class CcimsDatamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CcimsDatamodelPackage.ISSUE: {
-				Issue issue = (Issue)theEObject;
-				T result = caseIssue(issue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.ISSUE_MANAGEMENT_SYSTEM: {
-				IssueManagementSystem issueManagementSystem = (IssueManagementSystem)theEObject;
-				T result = caseIssueManagementSystem(issueManagementSystem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CcimsDatamodelPackage.LABEL: {
 				Label label = (Label)theEObject;
 				T result = caseLabel(label);
@@ -183,36 +171,6 @@ public class CcimsDatamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDeveloper(Developer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Issue</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIssue(Issue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Issue Management System</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Issue Management System</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIssueManagementSystem(IssueManagementSystem object) {
 		return null;
 	}
 

@@ -4,6 +4,7 @@
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**

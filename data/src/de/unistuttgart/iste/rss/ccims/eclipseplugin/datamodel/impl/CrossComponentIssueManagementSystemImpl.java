@@ -8,7 +8,6 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 
 import java.util.Collection;
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueManagementSystemImpl#getIssueRootLocations <em>Issue Root Locations</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueManagementSystemImpl#getManagedCroCoIssues <em>Managed Cro Co Issues</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueManagementSystemImpl#getLabels <em>Labels</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CrossComponentIssueManagementSystemImpl#getDevelopers <em>Developers</em>}</li>
@@ -52,16 +50,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2020 Tim Neumann";
-
-	/**
-	 * The cached value of the '{@link #getIssueRootLocations() <em>Issue Root Locations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIssueRootLocations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<IssueManagementSystem> issueRootLocations;
 
 	/**
 	 * The cached value of the '{@link #getManagedCroCoIssues() <em>Managed Cro Co Issues</em>}' containment reference list.
@@ -148,19 +136,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	 * @generated
 	 */
 	@Override
-	public EList<IssueManagementSystem> getIssueRootLocations() {
-		if (issueRootLocations == null) {
-			issueRootLocations = new EObjectContainmentEList<IssueManagementSystem>(IssueManagementSystem.class, this, CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS);
-		}
-		return issueRootLocations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<CrossComponentIssue> getManagedCroCoIssues() {
 		if (managedCroCoIssues == null) {
 			managedCroCoIssues = new EObjectContainmentEList<CrossComponentIssue>(CrossComponentIssue.class, this, CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES);
@@ -238,8 +213,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS:
-				return ((InternalEList<?>)getIssueRootLocations()).basicRemove(otherEnd, msgs);
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES:
 				return ((InternalEList<?>)getManagedCroCoIssues()).basicRemove(otherEnd, msgs);
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS:
@@ -260,8 +233,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS:
-				return getIssueRootLocations();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES:
 				return getManagedCroCoIssues();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS:
@@ -285,10 +256,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS:
-				getIssueRootLocations().clear();
-				getIssueRootLocations().addAll((Collection<? extends IssueManagementSystem>)newValue);
-				return;
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES:
 				getManagedCroCoIssues().clear();
 				getManagedCroCoIssues().addAll((Collection<? extends CrossComponentIssue>)newValue);
@@ -320,9 +287,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS:
-				getIssueRootLocations().clear();
-				return;
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES:
 				getManagedCroCoIssues().clear();
 				return;
@@ -350,8 +314,6 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS:
-				return issueRootLocations != null && !issueRootLocations.isEmpty();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES:
 				return managedCroCoIssues != null && !managedCroCoIssues.isEmpty();
 			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS:

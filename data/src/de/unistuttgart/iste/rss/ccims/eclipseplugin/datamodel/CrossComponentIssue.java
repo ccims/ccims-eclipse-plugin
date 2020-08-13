@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getTextBody <em>Text Body</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#isIsOpen <em>Is Open</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getAssignees <em>Assignees</em>}</li>
- *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getRepresentedIssues <em>Represented Issues</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getConcernedComponents <em>Concerned Components</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getLabels <em>Labels</em>}</li>
  *   <li>{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue#getLinkedIssues <em>Linked Issues</em>}</li>
@@ -118,18 +117,6 @@ public interface CrossComponentIssue extends EObject {
 	 * @generated
 	 */
 	EList<Developer> getAssignees();
-
-	/**
-	 * Returns the value of the '<em><b>Represented Issues</b></em>' reference list.
-	 * The list contents are of type {@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Represented Issues</em>' reference list.
-	 * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage#getCrossComponentIssue_RepresentedIssues()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	EList<Issue> getRepresentedIssues();
 
 	/**
 	 * Returns the value of the '<em><b>Concerned Components</b></em>' reference list.
