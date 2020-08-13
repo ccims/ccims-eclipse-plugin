@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +62,7 @@ public class ReferencedByIssueEvent extends AbstractResponse<ReferencedByIssueEv
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
@@ -123,11 +131,11 @@ public class ReferencedByIssueEvent extends AbstractResponse<ReferencedByIssueEv
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public ReferencedByIssueEvent setCreatedAt(String arg) {
+    public ReferencedByIssueEvent setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }

@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +44,11 @@ public class CreateIssueInput implements Serializable {
 
     private Input<List<ID>> locations = Input.undefined();
 
-    private Input<String> startDate = Input.undefined();
+    private Input<Date> startDate = Input.undefined();
 
-    private Input<String> dueDate = Input.undefined();
+    private Input<Date> dueDate = Input.undefined();
 
-    private Input<String> estimatedTime = Input.undefined();
+    private Input<Integer> estimatedTime = Input.undefined();
 
     private Input<String> clientMutationId = Input.undefined();
 
@@ -173,20 +181,20 @@ public class CreateIssueInput implements Serializable {
         return this;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate.getValue();
     }
 
-    public Input<String> getStartDateInput() {
+    public Input<Date> getStartDateInput() {
         return startDate;
     }
 
-    public CreateIssueInput setStartDate(String startDate) {
+    public CreateIssueInput setStartDate(Date startDate) {
         this.startDate = Input.optional(startDate);
         return this;
     }
 
-    public CreateIssueInput setStartDateInput(Input<String> startDate) {
+    public CreateIssueInput setStartDateInput(Input<Date> startDate) {
         if (startDate == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -194,20 +202,20 @@ public class CreateIssueInput implements Serializable {
         return this;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return dueDate.getValue();
     }
 
-    public Input<String> getDueDateInput() {
+    public Input<Date> getDueDateInput() {
         return dueDate;
     }
 
-    public CreateIssueInput setDueDate(String dueDate) {
+    public CreateIssueInput setDueDate(Date dueDate) {
         this.dueDate = Input.optional(dueDate);
         return this;
     }
 
-    public CreateIssueInput setDueDateInput(Input<String> dueDate) {
+    public CreateIssueInput setDueDateInput(Input<Date> dueDate) {
         if (dueDate == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -215,20 +223,20 @@ public class CreateIssueInput implements Serializable {
         return this;
     }
 
-    public String getEstimatedTime() {
+    public Integer getEstimatedTime() {
         return estimatedTime.getValue();
     }
 
-    public Input<String> getEstimatedTimeInput() {
+    public Input<Integer> getEstimatedTimeInput() {
         return estimatedTime;
     }
 
-    public CreateIssueInput setEstimatedTime(String estimatedTime) {
+    public CreateIssueInput setEstimatedTime(Integer estimatedTime) {
         this.estimatedTime = Input.optional(estimatedTime);
         return this;
     }
 
-    public CreateIssueInput setEstimatedTimeInput(Input<String> estimatedTime) {
+    public CreateIssueInput setEstimatedTimeInput(Input<Integer> estimatedTime) {
         if (estimatedTime == null) {
             throw new IllegalArgumentException("Input can not be null");
         }

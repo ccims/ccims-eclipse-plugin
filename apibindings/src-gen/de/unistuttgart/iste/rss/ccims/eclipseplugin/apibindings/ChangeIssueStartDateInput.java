@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +32,11 @@ import java.util.Map;
 public class ChangeIssueStartDateInput implements Serializable {
     private ID issue;
 
-    private String newStartDate;
+    private Date newStartDate;
 
     private Input<String> clientMutationId = Input.undefined();
 
-    public ChangeIssueStartDateInput(ID issue, String newStartDate) {
+    public ChangeIssueStartDateInput(ID issue, Date newStartDate) {
         this.issue = issue;
 
         this.newStartDate = newStartDate;
@@ -43,11 +51,11 @@ public class ChangeIssueStartDateInput implements Serializable {
         return this;
     }
 
-    public String getNewStartDate() {
+    public Date getNewStartDate() {
         return newStartDate;
     }
 
-    public ChangeIssueStartDateInput setNewStartDate(String newStartDate) {
+    public ChangeIssueStartDateInput setNewStartDate(Date newStartDate) {
         this.newStartDate = newStartDate;
         return this;
     }

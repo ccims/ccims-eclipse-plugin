@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +62,7 @@ public class DeletedIssueComment extends AbstractResponse<DeletedIssueComment> i
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
@@ -71,9 +79,9 @@ public class DeletedIssueComment extends AbstractResponse<DeletedIssueComment> i
                 }
 
                 case "deletedAt": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -123,11 +131,11 @@ public class DeletedIssueComment extends AbstractResponse<DeletedIssueComment> i
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public DeletedIssueComment setCreatedAt(String arg) {
+    public DeletedIssueComment setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }
@@ -141,11 +149,11 @@ public class DeletedIssueComment extends AbstractResponse<DeletedIssueComment> i
         return this;
     }
 
-    public String getDeletedAt() {
-        return (String) get("deletedAt");
+    public Date getDeletedAt() {
+        return (Date) get("deletedAt");
     }
 
-    public DeletedIssueComment setDeletedAt(String arg) {
+    public DeletedIssueComment setDeletedAt(Date arg) {
         optimisticData.put(getKey("deletedAt"), arg);
         return this;
     }

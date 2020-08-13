@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,17 +40,17 @@ public class IssueFilter implements Serializable {
 
     private Input<List<ID>> editedBy = Input.undefined();
 
-    private Input<String> createdAfter = Input.undefined();
+    private Input<Date> createdAfter = Input.undefined();
 
-    private Input<String> createdBefore = Input.undefined();
+    private Input<Date> createdBefore = Input.undefined();
 
-    private Input<String> editedAfter = Input.undefined();
+    private Input<Date> editedAfter = Input.undefined();
 
-    private Input<String> editedBefore = Input.undefined();
+    private Input<Date> editedBefore = Input.undefined();
 
-    private Input<String> updatedAfter = Input.undefined();
+    private Input<Date> updatedAfter = Input.undefined();
 
-    private Input<String> updatedBefore = Input.undefined();
+    private Input<Date> updatedBefore = Input.undefined();
 
     private Input<Boolean> isOpen = Input.undefined();
 
@@ -66,21 +74,21 @@ public class IssueFilter implements Serializable {
 
     private Input<Boolean> currentUserCanComment = Input.undefined();
 
-    private Input<String> startDateAfter = Input.undefined();
+    private Input<Date> startDateAfter = Input.undefined();
 
-    private Input<String> startDateBefore = Input.undefined();
+    private Input<Date> startDateBefore = Input.undefined();
 
-    private Input<String> dueDateAfter = Input.undefined();
+    private Input<Date> dueDateAfter = Input.undefined();
 
-    private Input<String> dueDateBefore = Input.undefined();
+    private Input<Date> dueDateBefore = Input.undefined();
 
-    private Input<String> estimatedTimeGreaterThan = Input.undefined();
+    private Input<Integer> estimatedTimeGreaterThan = Input.undefined();
 
-    private Input<String> estimatedTimeLowerThan = Input.undefined();
+    private Input<Integer> estimatedTimeLowerThan = Input.undefined();
 
-    private Input<String> spentTimeGreaterThan = Input.undefined();
+    private Input<Integer> spentTimeGreaterThan = Input.undefined();
 
-    private Input<String> spentTimeLowerThan = Input.undefined();
+    private Input<Integer> spentTimeLowerThan = Input.undefined();
 
     public List<String> getTitle() {
         return title.getValue();
@@ -187,20 +195,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedAfter() {
+    public Date getCreatedAfter() {
         return createdAfter.getValue();
     }
 
-    public Input<String> getCreatedAfterInput() {
+    public Input<Date> getCreatedAfterInput() {
         return createdAfter;
     }
 
-    public IssueFilter setCreatedAfter(String createdAfter) {
+    public IssueFilter setCreatedAfter(Date createdAfter) {
         this.createdAfter = Input.optional(createdAfter);
         return this;
     }
 
-    public IssueFilter setCreatedAfterInput(Input<String> createdAfter) {
+    public IssueFilter setCreatedAfterInput(Input<Date> createdAfter) {
         if (createdAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -208,20 +216,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedBefore() {
+    public Date getCreatedBefore() {
         return createdBefore.getValue();
     }
 
-    public Input<String> getCreatedBeforeInput() {
+    public Input<Date> getCreatedBeforeInput() {
         return createdBefore;
     }
 
-    public IssueFilter setCreatedBefore(String createdBefore) {
+    public IssueFilter setCreatedBefore(Date createdBefore) {
         this.createdBefore = Input.optional(createdBefore);
         return this;
     }
 
-    public IssueFilter setCreatedBeforeInput(Input<String> createdBefore) {
+    public IssueFilter setCreatedBeforeInput(Input<Date> createdBefore) {
         if (createdBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -229,20 +237,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getEditedAfter() {
+    public Date getEditedAfter() {
         return editedAfter.getValue();
     }
 
-    public Input<String> getEditedAfterInput() {
+    public Input<Date> getEditedAfterInput() {
         return editedAfter;
     }
 
-    public IssueFilter setEditedAfter(String editedAfter) {
+    public IssueFilter setEditedAfter(Date editedAfter) {
         this.editedAfter = Input.optional(editedAfter);
         return this;
     }
 
-    public IssueFilter setEditedAfterInput(Input<String> editedAfter) {
+    public IssueFilter setEditedAfterInput(Input<Date> editedAfter) {
         if (editedAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -250,20 +258,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getEditedBefore() {
+    public Date getEditedBefore() {
         return editedBefore.getValue();
     }
 
-    public Input<String> getEditedBeforeInput() {
+    public Input<Date> getEditedBeforeInput() {
         return editedBefore;
     }
 
-    public IssueFilter setEditedBefore(String editedBefore) {
+    public IssueFilter setEditedBefore(Date editedBefore) {
         this.editedBefore = Input.optional(editedBefore);
         return this;
     }
 
-    public IssueFilter setEditedBeforeInput(Input<String> editedBefore) {
+    public IssueFilter setEditedBeforeInput(Input<Date> editedBefore) {
         if (editedBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -271,20 +279,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getUpdatedAfter() {
+    public Date getUpdatedAfter() {
         return updatedAfter.getValue();
     }
 
-    public Input<String> getUpdatedAfterInput() {
+    public Input<Date> getUpdatedAfterInput() {
         return updatedAfter;
     }
 
-    public IssueFilter setUpdatedAfter(String updatedAfter) {
+    public IssueFilter setUpdatedAfter(Date updatedAfter) {
         this.updatedAfter = Input.optional(updatedAfter);
         return this;
     }
 
-    public IssueFilter setUpdatedAfterInput(Input<String> updatedAfter) {
+    public IssueFilter setUpdatedAfterInput(Input<Date> updatedAfter) {
         if (updatedAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -292,20 +300,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getUpdatedBefore() {
+    public Date getUpdatedBefore() {
         return updatedBefore.getValue();
     }
 
-    public Input<String> getUpdatedBeforeInput() {
+    public Input<Date> getUpdatedBeforeInput() {
         return updatedBefore;
     }
 
-    public IssueFilter setUpdatedBefore(String updatedBefore) {
+    public IssueFilter setUpdatedBefore(Date updatedBefore) {
         this.updatedBefore = Input.optional(updatedBefore);
         return this;
     }
 
-    public IssueFilter setUpdatedBeforeInput(Input<String> updatedBefore) {
+    public IssueFilter setUpdatedBeforeInput(Input<Date> updatedBefore) {
         if (updatedBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -544,20 +552,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getStartDateAfter() {
+    public Date getStartDateAfter() {
         return startDateAfter.getValue();
     }
 
-    public Input<String> getStartDateAfterInput() {
+    public Input<Date> getStartDateAfterInput() {
         return startDateAfter;
     }
 
-    public IssueFilter setStartDateAfter(String startDateAfter) {
+    public IssueFilter setStartDateAfter(Date startDateAfter) {
         this.startDateAfter = Input.optional(startDateAfter);
         return this;
     }
 
-    public IssueFilter setStartDateAfterInput(Input<String> startDateAfter) {
+    public IssueFilter setStartDateAfterInput(Input<Date> startDateAfter) {
         if (startDateAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -565,20 +573,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getStartDateBefore() {
+    public Date getStartDateBefore() {
         return startDateBefore.getValue();
     }
 
-    public Input<String> getStartDateBeforeInput() {
+    public Input<Date> getStartDateBeforeInput() {
         return startDateBefore;
     }
 
-    public IssueFilter setStartDateBefore(String startDateBefore) {
+    public IssueFilter setStartDateBefore(Date startDateBefore) {
         this.startDateBefore = Input.optional(startDateBefore);
         return this;
     }
 
-    public IssueFilter setStartDateBeforeInput(Input<String> startDateBefore) {
+    public IssueFilter setStartDateBeforeInput(Input<Date> startDateBefore) {
         if (startDateBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -586,20 +594,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getDueDateAfter() {
+    public Date getDueDateAfter() {
         return dueDateAfter.getValue();
     }
 
-    public Input<String> getDueDateAfterInput() {
+    public Input<Date> getDueDateAfterInput() {
         return dueDateAfter;
     }
 
-    public IssueFilter setDueDateAfter(String dueDateAfter) {
+    public IssueFilter setDueDateAfter(Date dueDateAfter) {
         this.dueDateAfter = Input.optional(dueDateAfter);
         return this;
     }
 
-    public IssueFilter setDueDateAfterInput(Input<String> dueDateAfter) {
+    public IssueFilter setDueDateAfterInput(Input<Date> dueDateAfter) {
         if (dueDateAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -607,20 +615,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getDueDateBefore() {
+    public Date getDueDateBefore() {
         return dueDateBefore.getValue();
     }
 
-    public Input<String> getDueDateBeforeInput() {
+    public Input<Date> getDueDateBeforeInput() {
         return dueDateBefore;
     }
 
-    public IssueFilter setDueDateBefore(String dueDateBefore) {
+    public IssueFilter setDueDateBefore(Date dueDateBefore) {
         this.dueDateBefore = Input.optional(dueDateBefore);
         return this;
     }
 
-    public IssueFilter setDueDateBeforeInput(Input<String> dueDateBefore) {
+    public IssueFilter setDueDateBeforeInput(Input<Date> dueDateBefore) {
         if (dueDateBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -628,20 +636,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getEstimatedTimeGreaterThan() {
+    public Integer getEstimatedTimeGreaterThan() {
         return estimatedTimeGreaterThan.getValue();
     }
 
-    public Input<String> getEstimatedTimeGreaterThanInput() {
+    public Input<Integer> getEstimatedTimeGreaterThanInput() {
         return estimatedTimeGreaterThan;
     }
 
-    public IssueFilter setEstimatedTimeGreaterThan(String estimatedTimeGreaterThan) {
+    public IssueFilter setEstimatedTimeGreaterThan(Integer estimatedTimeGreaterThan) {
         this.estimatedTimeGreaterThan = Input.optional(estimatedTimeGreaterThan);
         return this;
     }
 
-    public IssueFilter setEstimatedTimeGreaterThanInput(Input<String> estimatedTimeGreaterThan) {
+    public IssueFilter setEstimatedTimeGreaterThanInput(Input<Integer> estimatedTimeGreaterThan) {
         if (estimatedTimeGreaterThan == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -649,20 +657,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getEstimatedTimeLowerThan() {
+    public Integer getEstimatedTimeLowerThan() {
         return estimatedTimeLowerThan.getValue();
     }
 
-    public Input<String> getEstimatedTimeLowerThanInput() {
+    public Input<Integer> getEstimatedTimeLowerThanInput() {
         return estimatedTimeLowerThan;
     }
 
-    public IssueFilter setEstimatedTimeLowerThan(String estimatedTimeLowerThan) {
+    public IssueFilter setEstimatedTimeLowerThan(Integer estimatedTimeLowerThan) {
         this.estimatedTimeLowerThan = Input.optional(estimatedTimeLowerThan);
         return this;
     }
 
-    public IssueFilter setEstimatedTimeLowerThanInput(Input<String> estimatedTimeLowerThan) {
+    public IssueFilter setEstimatedTimeLowerThanInput(Input<Integer> estimatedTimeLowerThan) {
         if (estimatedTimeLowerThan == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -670,20 +678,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getSpentTimeGreaterThan() {
+    public Integer getSpentTimeGreaterThan() {
         return spentTimeGreaterThan.getValue();
     }
 
-    public Input<String> getSpentTimeGreaterThanInput() {
+    public Input<Integer> getSpentTimeGreaterThanInput() {
         return spentTimeGreaterThan;
     }
 
-    public IssueFilter setSpentTimeGreaterThan(String spentTimeGreaterThan) {
+    public IssueFilter setSpentTimeGreaterThan(Integer spentTimeGreaterThan) {
         this.spentTimeGreaterThan = Input.optional(spentTimeGreaterThan);
         return this;
     }
 
-    public IssueFilter setSpentTimeGreaterThanInput(Input<String> spentTimeGreaterThan) {
+    public IssueFilter setSpentTimeGreaterThanInput(Input<Integer> spentTimeGreaterThan) {
         if (spentTimeGreaterThan == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -691,20 +699,20 @@ public class IssueFilter implements Serializable {
         return this;
     }
 
-    public String getSpentTimeLowerThan() {
+    public Integer getSpentTimeLowerThan() {
         return spentTimeLowerThan.getValue();
     }
 
-    public Input<String> getSpentTimeLowerThanInput() {
+    public Input<Integer> getSpentTimeLowerThanInput() {
         return spentTimeLowerThan;
     }
 
-    public IssueFilter setSpentTimeLowerThan(String spentTimeLowerThan) {
+    public IssueFilter setSpentTimeLowerThan(Integer spentTimeLowerThan) {
         this.spentTimeLowerThan = Input.optional(spentTimeLowerThan);
         return this;
     }
 
-    public IssueFilter setSpentTimeLowerThanInput(Input<String> spentTimeLowerThan) {
+    public IssueFilter setSpentTimeLowerThanInput(Input<Integer> spentTimeLowerThan) {
         if (spentTimeLowerThan == null) {
             throw new IllegalArgumentException("Input can not be null");
         }

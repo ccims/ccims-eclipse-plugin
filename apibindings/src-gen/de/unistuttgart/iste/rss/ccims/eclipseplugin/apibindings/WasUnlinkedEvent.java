@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +62,7 @@ public class WasUnlinkedEvent extends AbstractResponse<WasUnlinkedEvent> impleme
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
@@ -112,11 +120,11 @@ public class WasUnlinkedEvent extends AbstractResponse<WasUnlinkedEvent> impleme
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public WasUnlinkedEvent setCreatedAt(String arg) {
+    public WasUnlinkedEvent setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }

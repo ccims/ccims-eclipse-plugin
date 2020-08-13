@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,15 +73,15 @@ public class IssueComment extends AbstractResponse<IssueComment> implements Comm
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
 
                 case "editedAt": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -171,20 +179,20 @@ public class IssueComment extends AbstractResponse<IssueComment> implements Comm
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public IssueComment setCreatedAt(String arg) {
+    public IssueComment setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }
 
-    public String getEditedAt() {
-        return (String) get("editedAt");
+    public Date getEditedAt() {
+        return (Date) get("editedAt");
     }
 
-    public IssueComment setEditedAt(String arg) {
+    public IssueComment setEditedAt(Date arg) {
         optimisticData.put(getKey("editedAt"), arg);
         return this;
     }

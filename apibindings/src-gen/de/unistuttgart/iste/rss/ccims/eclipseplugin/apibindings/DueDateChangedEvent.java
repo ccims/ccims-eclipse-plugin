@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,15 +62,15 @@ public class DueDateChangedEvent extends AbstractResponse<DueDateChangedEvent> i
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
 
                 case "oldDueDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -71,9 +79,9 @@ public class DueDateChangedEvent extends AbstractResponse<DueDateChangedEvent> i
                 }
 
                 case "newDueDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -123,29 +131,29 @@ public class DueDateChangedEvent extends AbstractResponse<DueDateChangedEvent> i
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public DueDateChangedEvent setCreatedAt(String arg) {
+    public DueDateChangedEvent setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }
 
-    public String getOldDueDate() {
-        return (String) get("oldDueDate");
+    public Date getOldDueDate() {
+        return (Date) get("oldDueDate");
     }
 
-    public DueDateChangedEvent setOldDueDate(String arg) {
+    public DueDateChangedEvent setOldDueDate(Date arg) {
         optimisticData.put(getKey("oldDueDate"), arg);
         return this;
     }
 
-    public String getNewDueDate() {
-        return (String) get("newDueDate");
+    public Date getNewDueDate() {
+        return (Date) get("newDueDate");
     }
 
-    public DueDateChangedEvent setNewDueDate(String arg) {
+    public DueDateChangedEvent setNewDueDate(Date arg) {
         optimisticData.put(getKey("newDueDate"), arg);
         return this;
     }

@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +36,13 @@ public class IssueCommentFilter implements Serializable {
 
     private Input<List<ID>> editedBy = Input.undefined();
 
-    private Input<String> createdAfter = Input.undefined();
+    private Input<Date> createdAfter = Input.undefined();
 
-    private Input<String> createdBefore = Input.undefined();
+    private Input<Date> createdBefore = Input.undefined();
 
-    private Input<String> editedAfter = Input.undefined();
+    private Input<Date> editedAfter = Input.undefined();
 
-    private Input<String> editedBefore = Input.undefined();
+    private Input<Date> editedBefore = Input.undefined();
 
     private Input<String> body = Input.undefined();
 
@@ -105,20 +113,20 @@ public class IssueCommentFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedAfter() {
+    public Date getCreatedAfter() {
         return createdAfter.getValue();
     }
 
-    public Input<String> getCreatedAfterInput() {
+    public Input<Date> getCreatedAfterInput() {
         return createdAfter;
     }
 
-    public IssueCommentFilter setCreatedAfter(String createdAfter) {
+    public IssueCommentFilter setCreatedAfter(Date createdAfter) {
         this.createdAfter = Input.optional(createdAfter);
         return this;
     }
 
-    public IssueCommentFilter setCreatedAfterInput(Input<String> createdAfter) {
+    public IssueCommentFilter setCreatedAfterInput(Input<Date> createdAfter) {
         if (createdAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -126,20 +134,20 @@ public class IssueCommentFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedBefore() {
+    public Date getCreatedBefore() {
         return createdBefore.getValue();
     }
 
-    public Input<String> getCreatedBeforeInput() {
+    public Input<Date> getCreatedBeforeInput() {
         return createdBefore;
     }
 
-    public IssueCommentFilter setCreatedBefore(String createdBefore) {
+    public IssueCommentFilter setCreatedBefore(Date createdBefore) {
         this.createdBefore = Input.optional(createdBefore);
         return this;
     }
 
-    public IssueCommentFilter setCreatedBeforeInput(Input<String> createdBefore) {
+    public IssueCommentFilter setCreatedBeforeInput(Input<Date> createdBefore) {
         if (createdBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -147,20 +155,20 @@ public class IssueCommentFilter implements Serializable {
         return this;
     }
 
-    public String getEditedAfter() {
+    public Date getEditedAfter() {
         return editedAfter.getValue();
     }
 
-    public Input<String> getEditedAfterInput() {
+    public Input<Date> getEditedAfterInput() {
         return editedAfter;
     }
 
-    public IssueCommentFilter setEditedAfter(String editedAfter) {
+    public IssueCommentFilter setEditedAfter(Date editedAfter) {
         this.editedAfter = Input.optional(editedAfter);
         return this;
     }
 
-    public IssueCommentFilter setEditedAfterInput(Input<String> editedAfter) {
+    public IssueCommentFilter setEditedAfterInput(Input<Date> editedAfter) {
         if (editedAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -168,20 +176,20 @@ public class IssueCommentFilter implements Serializable {
         return this;
     }
 
-    public String getEditedBefore() {
+    public Date getEditedBefore() {
         return editedBefore.getValue();
     }
 
-    public Input<String> getEditedBeforeInput() {
+    public Input<Date> getEditedBeforeInput() {
         return editedBefore;
     }
 
-    public IssueCommentFilter setEditedBefore(String editedBefore) {
+    public IssueCommentFilter setEditedBefore(Date editedBefore) {
         this.editedBefore = Input.optional(editedBefore);
         return this;
     }
 
-    public IssueCommentFilter setEditedBeforeInput(Input<String> editedBefore) {
+    public IssueCommentFilter setEditedBeforeInput(Input<Date> editedBefore) {
         if (editedBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }

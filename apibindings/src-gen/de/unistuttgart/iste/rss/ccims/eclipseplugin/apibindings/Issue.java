@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,15 +106,15 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
 
                 case "editedAt": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -115,9 +123,9 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "updatedAt": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -255,9 +263,9 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "startDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -266,9 +274,9 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "dueDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -277,9 +285,9 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "estimatedTime": {
-                    String optional1 = null;
+                    Integer optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = jsonAsInteger(field.getValue(), key);
                     }
 
                     responseData.put(key, optional1);
@@ -288,9 +296,9 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
                 }
 
                 case "spentTime": {
-                    String optional1 = null;
+                    Integer optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = jsonAsInteger(field.getValue(), key);
                     }
 
                     responseData.put(key, optional1);
@@ -376,29 +384,29 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public Issue setCreatedAt(String arg) {
+    public Issue setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }
 
-    public String getEditedAt() {
-        return (String) get("editedAt");
+    public Date getEditedAt() {
+        return (Date) get("editedAt");
     }
 
-    public Issue setEditedAt(String arg) {
+    public Issue setEditedAt(Date arg) {
         optimisticData.put(getKey("editedAt"), arg);
         return this;
     }
 
-    public String getUpdatedAt() {
-        return (String) get("updatedAt");
+    public Date getUpdatedAt() {
+        return (Date) get("updatedAt");
     }
 
-    public Issue setUpdatedAt(String arg) {
+    public Issue setUpdatedAt(Date arg) {
         optimisticData.put(getKey("updatedAt"), arg);
         return this;
     }
@@ -529,38 +537,38 @@ public class Issue extends AbstractResponse<Issue> implements Comment {
         return this;
     }
 
-    public String getStartDate() {
-        return (String) get("startDate");
+    public Date getStartDate() {
+        return (Date) get("startDate");
     }
 
-    public Issue setStartDate(String arg) {
+    public Issue setStartDate(Date arg) {
         optimisticData.put(getKey("startDate"), arg);
         return this;
     }
 
-    public String getDueDate() {
-        return (String) get("dueDate");
+    public Date getDueDate() {
+        return (Date) get("dueDate");
     }
 
-    public Issue setDueDate(String arg) {
+    public Issue setDueDate(Date arg) {
         optimisticData.put(getKey("dueDate"), arg);
         return this;
     }
 
-    public String getEstimatedTime() {
-        return (String) get("estimatedTime");
+    public Integer getEstimatedTime() {
+        return (Integer) get("estimatedTime");
     }
 
-    public Issue setEstimatedTime(String arg) {
+    public Issue setEstimatedTime(Integer arg) {
         optimisticData.put(getKey("estimatedTime"), arg);
         return this;
     }
 
-    public String getSpentTime() {
-        return (String) get("spentTime");
+    public Integer getSpentTime() {
+        return (Integer) get("spentTime");
     }
 
-    public Issue setSpentTime(String arg) {
+    public Issue setSpentTime(Integer arg) {
         optimisticData.put(getKey("spentTime"), arg);
         return this;
     }

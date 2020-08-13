@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,15 +62,15 @@ public class StartDateChangedEvent extends AbstractResponse<StartDateChangedEven
                 }
 
                 case "createdAt": {
-                    responseData.put(key, jsonAsString(field.getValue(), key));
+                    responseData.put(key, Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key)))));
 
                     break;
                 }
 
                 case "oldStartDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -71,9 +79,9 @@ public class StartDateChangedEvent extends AbstractResponse<StartDateChangedEven
                 }
 
                 case "newStartDate": {
-                    String optional1 = null;
+                    Date optional1 = null;
                     if (!field.getValue().isJsonNull()) {
-                        optional1 = jsonAsString(field.getValue(), key);
+                        optional1 = Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(jsonAsString(field.getValue(), key))));
                     }
 
                     responseData.put(key, optional1);
@@ -123,29 +131,29 @@ public class StartDateChangedEvent extends AbstractResponse<StartDateChangedEven
         return this;
     }
 
-    public String getCreatedAt() {
-        return (String) get("createdAt");
+    public Date getCreatedAt() {
+        return (Date) get("createdAt");
     }
 
-    public StartDateChangedEvent setCreatedAt(String arg) {
+    public StartDateChangedEvent setCreatedAt(Date arg) {
         optimisticData.put(getKey("createdAt"), arg);
         return this;
     }
 
-    public String getOldStartDate() {
-        return (String) get("oldStartDate");
+    public Date getOldStartDate() {
+        return (Date) get("oldStartDate");
     }
 
-    public StartDateChangedEvent setOldStartDate(String arg) {
+    public StartDateChangedEvent setOldStartDate(Date arg) {
         optimisticData.put(getKey("oldStartDate"), arg);
         return this;
     }
 
-    public String getNewStartDate() {
-        return (String) get("newStartDate");
+    public Date getNewStartDate() {
+        return (Date) get("newStartDate");
     }
 
-    public StartDateChangedEvent setNewStartDate(String arg) {
+    public StartDateChangedEvent setNewStartDate(Date arg) {
         optimisticData.put(getKey("newStartDate"), arg);
         return this;
     }

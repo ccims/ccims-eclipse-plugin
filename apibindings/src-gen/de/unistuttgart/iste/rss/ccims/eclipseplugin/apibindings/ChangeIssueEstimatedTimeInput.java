@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +32,11 @@ import java.util.Map;
 public class ChangeIssueEstimatedTimeInput implements Serializable {
     private ID issue;
 
-    private String newEstimatedTime;
+    private Integer newEstimatedTime;
 
     private Input<String> clientMutationId = Input.undefined();
 
-    public ChangeIssueEstimatedTimeInput(ID issue, String newEstimatedTime) {
+    public ChangeIssueEstimatedTimeInput(ID issue, Integer newEstimatedTime) {
         this.issue = issue;
 
         this.newEstimatedTime = newEstimatedTime;
@@ -43,11 +51,11 @@ public class ChangeIssueEstimatedTimeInput implements Serializable {
         return this;
     }
 
-    public String getNewEstimatedTime() {
+    public Integer getNewEstimatedTime() {
         return newEstimatedTime;
     }
 
-    public ChangeIssueEstimatedTimeInput setNewEstimatedTime(String newEstimatedTime) {
+    public ChangeIssueEstimatedTimeInput setNewEstimatedTime(Integer newEstimatedTime) {
         this.newEstimatedTime = newEstimatedTime;
         return this;
     }

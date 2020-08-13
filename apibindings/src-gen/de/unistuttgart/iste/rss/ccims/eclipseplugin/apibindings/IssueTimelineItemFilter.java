@@ -16,6 +16,14 @@ import com.shopify.graphql.support.Input;
 
 import com.shopify.graphql.support.ID;
 
+import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;
+
+import java.time.temporal.TemporalAccessor;
+
+import java.util.Date;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +32,9 @@ import java.util.Map;
 public class IssueTimelineItemFilter implements Serializable {
     private Input<List<ID>> createdBy = Input.undefined();
 
-    private Input<String> createdAfter = Input.undefined();
+    private Input<Date> createdAfter = Input.undefined();
 
-    private Input<String> createdBefore = Input.undefined();
+    private Input<Date> createdBefore = Input.undefined();
 
     public List<ID> getCreatedBy() {
         return createdBy.getValue();
@@ -49,20 +57,20 @@ public class IssueTimelineItemFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedAfter() {
+    public Date getCreatedAfter() {
         return createdAfter.getValue();
     }
 
-    public Input<String> getCreatedAfterInput() {
+    public Input<Date> getCreatedAfterInput() {
         return createdAfter;
     }
 
-    public IssueTimelineItemFilter setCreatedAfter(String createdAfter) {
+    public IssueTimelineItemFilter setCreatedAfter(Date createdAfter) {
         this.createdAfter = Input.optional(createdAfter);
         return this;
     }
 
-    public IssueTimelineItemFilter setCreatedAfterInput(Input<String> createdAfter) {
+    public IssueTimelineItemFilter setCreatedAfterInput(Input<Date> createdAfter) {
         if (createdAfter == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
@@ -70,20 +78,20 @@ public class IssueTimelineItemFilter implements Serializable {
         return this;
     }
 
-    public String getCreatedBefore() {
+    public Date getCreatedBefore() {
         return createdBefore.getValue();
     }
 
-    public Input<String> getCreatedBeforeInput() {
+    public Input<Date> getCreatedBeforeInput() {
         return createdBefore;
     }
 
-    public IssueTimelineItemFilter setCreatedBefore(String createdBefore) {
+    public IssueTimelineItemFilter setCreatedBefore(Date createdBefore) {
         this.createdBefore = Input.optional(createdBefore);
         return this;
     }
 
-    public IssueTimelineItemFilter setCreatedBeforeInput(Input<String> createdBefore) {
+    public IssueTimelineItemFilter setCreatedBeforeInput(Input<Date> createdBefore) {
         if (createdBefore == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
