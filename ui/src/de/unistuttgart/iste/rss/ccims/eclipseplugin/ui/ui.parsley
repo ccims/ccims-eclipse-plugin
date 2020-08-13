@@ -11,8 +11,6 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label
 
 module de.unistuttgart.iste.rss.ccims.eclipseplugin.ui {
@@ -42,8 +40,6 @@ module de.unistuttgart.iste.rss.ccims.eclipseplugin.ui {
 			CrossComponentIssueManagementSystem -> "CCIMS at " + locationUri
 			Developer -> name
 			Interface -> name
-			Issue -> "#" + id
-			IssueManagementSystem -> name
 			Label -> name
 		}
 		image{

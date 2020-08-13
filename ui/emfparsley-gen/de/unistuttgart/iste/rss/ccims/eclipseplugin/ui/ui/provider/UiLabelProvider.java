@@ -6,8 +6,6 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssu
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Issue;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.IssueManagementSystem;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.LabelIconProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -42,17 +40,6 @@ public class UiLabelProvider extends ViewerLabelProvider {
   }
   
   public String text(final Interface it) {
-    String _name = it.getName();
-    return _name;
-  }
-  
-  public String text(final Issue it) {
-    int _id = it.getId();
-    String _plus = ("#" + Integer.valueOf(_id));
-    return _plus;
-  }
-  
-  public String text(final IssueManagementSystem it) {
     String _name = it.getName();
     return _name;
   }
