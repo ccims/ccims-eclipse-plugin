@@ -15,13 +15,17 @@ and manually implemented.
 Manually implemented.</body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_9tawYMzqEeqzzKE4oGybwg" annotatedElement="_UJlYQMznEeqzzKE4oGybwg">
-    <body>EMF Resource + ResourceFactory Implementation?
+    <body>EMF Resource + ResourceFactory Implementation
 Not yet implemented. 
 Manual Implementation</body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_fWsNEMzrEeqzzKE4oGybwg" annotatedElement="__Yr8MMzmEeqzzKE4oGybwg">
-    <body>GraphQL Api
-Use the filters provided here instead of reimplementing them in java?</body>
+    <body>GraphQL Api</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_rfjWIN4fEeq0nZOGegG4hQ" annotatedElement="_g6_yQN4fEeq0nZOGegG4hQ">
+    <body>Helpers for creating GraphQL Queries +
+Object Deserializers
+Generated from GraphQL Schema</body>
   </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_e7PywMzhEeqzzKE4oGybwg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -31,9 +35,10 @@ Use the filters provided here instead of reimplementing them in java?</body>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_cR25MMziEeqzzKE4oGybwg" name="ccims-eclipse-plugin">
     <packagedElement xmi:type="uml:Component" xmi:id="_1ai4EMzmEeqzzKE4oGybwg" name="data"/>
-    <packagedElement xmi:type="uml:Component" xmi:id="_UJlYQMznEeqzzKE4oGybwg" name="api-binding">
+    <packagedElement xmi:type="uml:Component" xmi:id="_UJlYQMznEeqzzKE4oGybwg" name="resourcemanager">
       <packagedElement xmi:type="uml:Usage" xmi:id="_Ytkg0MznEeqzzKE4oGybwg" client="_UJlYQMznEeqzzKE4oGybwg" supplier="__Yr8MMzmEeqzzKE4oGybwg"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_J-yP0Mz1EeqzzKE4oGybwg" client="_UJlYQMznEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_pnj5wN4fEeq0nZOGegG4hQ" client="_UJlYQMznEeqzzKE4oGybwg" supplier="_g6_yQN4fEeq0nZOGegG4hQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Component" xmi:id="_RdukEMzpEeqzzKE4oGybwg" name="logic">
       <packagedElement xmi:type="uml:Dependency" xmi:id="_O0W3oMz1EeqzzKE4oGybwg" client="_RdukEMzpEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
@@ -43,6 +48,7 @@ Use the filters provided here instead of reimplementing them in java?</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_lKx9gMzpEeqzzKE4oGybwg" client="_hBcJkMzpEeqzzKE4oGybwg" supplier="_1ai4EMzmEeqzzKE4oGybwg"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_p8LP8MzpEeqzzKE4oGybwg" client="_hBcJkMzpEeqzzKE4oGybwg" supplier="_RdukEMzpEeqzzKE4oGybwg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_g6_yQN4fEeq0nZOGegG4hQ" name="apibindings"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="__Yr8MMzmEeqzzKE4oGybwg" name="CCIMS-Api"/>
 </uml:Model>
