@@ -2,11 +2,14 @@ package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui;
 
 import org.osgi.framework.BundleContext;
 
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.resourcemanager.CcimsResourceFactory;
+
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -39,6 +42,10 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		var resourceFactory = new CcimsResourceFactory();
+		Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("ccims", resourceFactory);
+		Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("ccimss", resourceFactory);
 	}
 
 	/*

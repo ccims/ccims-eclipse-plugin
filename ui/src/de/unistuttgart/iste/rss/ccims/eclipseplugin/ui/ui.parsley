@@ -76,11 +76,11 @@ module de.unistuttgart.iste.rss.ccims.eclipseplugin.ui {
 		
 		resourceURI {
 			IssueListView -> {
-				return URI.createFileURI(System.getProperty("user.home") + "/MyIssues.issues");
+				return URI.createURI("ccims://localhost:8080/api");
 			}
 			
 			DebugMasterView -> {
-				return URI.createFileURI(System.getProperty("user.home") + "/MyIssues.issues");
+				return URI.createURI("ccims://localhost:8080/api");
 			}
 		}
 	}
