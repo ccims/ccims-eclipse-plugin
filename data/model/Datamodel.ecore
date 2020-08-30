@@ -26,14 +26,12 @@
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" ordered="false"
         upperBound="-1" eType="#//Developer" eOpposite="#//Developer/assignedIssues"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedComponents" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" ordered="false"
         upperBound="-1" eType="#//Label"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkedIssues" ordered="false"
         upperBound="-1" eType="#//CrossComponentIssue"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedInterface" ordered="false"
-        eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" ordered="false"
+        upperBound="-1" eType="#//Location" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Developer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="developedComponents" ordered="false"
@@ -46,6 +44,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Label">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourcePath" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
+        lowerBound="1" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" ordered="false"
+        eType="#//Interface"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrossComponentIssueManagementSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="managedCroCoIssues" ordered="false"

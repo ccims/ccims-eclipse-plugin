@@ -20,10 +20,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//CrossComponentIssue/textBody"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//CrossComponentIssue/isOpen"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/assignees"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/concernedComponents"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/labels"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/linkedIssues"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/concernedInterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssue/locations"/>
     </genClasses>
     <genClasses ecoreClass="Datamodel.ecore#//Developer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Developer/developedComponents"/>
@@ -32,6 +31,12 @@
     </genClasses>
     <genClasses ecoreClass="Datamodel.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Label/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Datamodel.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Location/resourcePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Datamodel.ecore#//Location/line"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Location/component"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Location/interface"/>
     </genClasses>
     <genClasses ecoreClass="Datamodel.ecore#//CrossComponentIssueManagementSystem">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//CrossComponentIssueManagementSystem/managedCroCoIssues"/>

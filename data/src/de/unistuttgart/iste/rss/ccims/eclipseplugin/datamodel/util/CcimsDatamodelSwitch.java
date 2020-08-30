@@ -24,200 +24,221 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class CcimsDatamodelSwitch<T> extends Switch<T> {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright (c) 2020 Tim Neumann";
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2020 Tim Neumann";
 
-	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static CcimsDatamodelPackage modelPackage;
+    /**
+     * The cached model package
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static CcimsDatamodelPackage modelPackage;
 
-	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CcimsDatamodelSwitch() {
-		if (modelPackage == null) {
-			modelPackage = CcimsDatamodelPackage.eINSTANCE;
-		}
-	}
+    /**
+     * Creates an instance of the switch.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CcimsDatamodelSwitch() {
+        if (modelPackage == null) {
+            modelPackage = CcimsDatamodelPackage.eINSTANCE;
+        }
+    }
 
-	/**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param ePackage the package in question.
-	 * @return whether this is a switch for the given package.
-	 * @generated
-	 */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
-		return ePackage == modelPackage;
-	}
+    /**
+     * Checks whether this is a switch for the given package.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param ePackage the package in question.
+     * @return whether this is a switch for the given package.
+     * @generated
+     */
+    @Override
+    protected boolean isSwitchFor(EPackage ePackage) {
+        return ePackage == modelPackage;
+    }
 
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case CcimsDatamodelPackage.COMPONENT: {
-				Component component = (Component)theEObject;
-				T result = caseComponent(component);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.INTERFACE: {
-				Interface interface_ = (Interface)theEObject;
-				T result = caseInterface(interface_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE: {
-				CrossComponentIssue crossComponentIssue = (CrossComponentIssue)theEObject;
-				T result = caseCrossComponentIssue(crossComponentIssue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.DEVELOPER: {
-				Developer developer = (Developer)theEObject;
-				T result = caseDeveloper(developer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.LABEL: {
-				Label label = (Label)theEObject;
-				T result = caseLabel(label);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM: {
-				CrossComponentIssueManagementSystem crossComponentIssueManagementSystem = (CrossComponentIssueManagementSystem)theEObject;
-				T result = caseCrossComponentIssueManagementSystem(crossComponentIssueManagementSystem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
-		}
-	}
+    /**
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
+    @Override
+    protected T doSwitch(int classifierID, EObject theEObject) {
+        switch (classifierID) {
+            case CcimsDatamodelPackage.COMPONENT: {
+                Component component = (Component)theEObject;
+                T result = caseComponent(component);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.INTERFACE: {
+                Interface interface_ = (Interface)theEObject;
+                T result = caseInterface(interface_);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE: {
+                CrossComponentIssue crossComponentIssue = (CrossComponentIssue)theEObject;
+                T result = caseCrossComponentIssue(crossComponentIssue);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.DEVELOPER: {
+                Developer developer = (Developer)theEObject;
+                T result = caseDeveloper(developer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.LABEL: {
+                Label label = (Label)theEObject;
+                T result = caseLabel(label);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.LOCATION: {
+                Location location = (Location)theEObject;
+                T result = caseLocation(location);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM: {
+                CrossComponentIssueManagementSystem crossComponentIssueManagementSystem = (CrossComponentIssueManagementSystem)theEObject;
+                T result = caseCrossComponentIssueManagementSystem(crossComponentIssueManagementSystem);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            default: return defaultCase(theEObject);
+        }
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponent(Component object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseComponent(Component object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInterface(Interface object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInterface(Interface object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cross Component Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cross Component Issue</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCrossComponentIssue(CrossComponentIssue object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cross Component Issue</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cross Component Issue</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCrossComponentIssue(CrossComponentIssue object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Developer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Developer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDeveloper(Developer object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Developer</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Developer</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDeveloper(Developer object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLabel(Label object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Label</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLabel(Label object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cross Component Issue Management System</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cross Component Issue Management System</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCrossComponentIssueManagementSystem(CrossComponentIssueManagementSystem object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Location</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLocation(Location object) {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	@Override
-	public T defaultCase(EObject object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cross Component Issue Management System</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cross Component Issue Management System</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCrossComponentIssueManagementSystem(CrossComponentIssueManagementSystem object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch, but this is the last case anyway.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+     * @generated
+     */
+    @Override
+    public T defaultCase(EObject object) {
+        return null;
+    }
 
 } //CcimsDatamodelSwitch
