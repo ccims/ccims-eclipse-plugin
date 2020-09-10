@@ -11,6 +11,7 @@ import com.google.inject.Inject;
 
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.logic.filter.CombinedFilter;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.logic.filter.DeveloperNameFilter;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.logic.filter.IssueFilter;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.logic.filter.OpenFilter;
 
@@ -52,6 +53,9 @@ public class IssueViewsFilteredContentProvider extends TableViewerContentProvide
 		if(store.getBoolean(UiPreferences.ISSUE_FILTER_OPEN)) {
 			filters.add(new OpenFilter());
 		}
+        if (store.getBoolean(UiPreferences.ISSUE_FILTER_OWN)) {
+            filters.add(new DeveloperNameFilter(store.getString(UiPreferences.DEVELOPER_NAME)));
+        }
 		return new CombinedFilter(filters);
 	}
 }

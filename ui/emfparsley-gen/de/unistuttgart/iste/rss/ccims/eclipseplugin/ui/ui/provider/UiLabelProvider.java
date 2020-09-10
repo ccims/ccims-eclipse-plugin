@@ -7,7 +7,9 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssu
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.LabelIconProvider;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.LocationLabelCalculator;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.parsley.ui.provider.ViewerLabelProvider;
 
@@ -47,6 +49,11 @@ public class UiLabelProvider extends ViewerLabelProvider {
   public String text(final Label it) {
     String _name = it.getName();
     return _name;
+  }
+  
+  public String text(final Location it) {
+    String _calculateLabelForLocation = LocationLabelCalculator.calculateLabelForLocation(it);
+    return _calculateLabelForLocation;
   }
   
   public Object image(final CrossComponentIssue it) {

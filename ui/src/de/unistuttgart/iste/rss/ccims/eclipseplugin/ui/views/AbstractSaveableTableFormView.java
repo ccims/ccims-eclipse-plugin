@@ -14,10 +14,12 @@ package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.parsley.composite.TableFormComposite;
 import org.eclipse.emf.parsley.composite.TableFormFactory;
+import org.eclipse.emf.parsley.views.AbstractSaveableTableView;
 import org.eclipse.emf.parsley.views.AbstractSaveableViewerView;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 
 import com.google.inject.Inject;
 
@@ -67,4 +69,20 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
 	protected TableFormComposite getComposite() {
 		return tableFormComposite;
 	}
+    
+    /**
+     * Recreates the table form composite.
+     * <p>
+     * Does not update or relayout anything.
+     */
+    protected void recreateComposite() {
+        Composite parent = this.getComposite().getParent();
+        for (Control child : parent.getChildren()) {
+            if (child == getComposite()) {
+                child.dispose();
+            }
+        }
+        this.tableFormComposite = tableFormFactory
+                .createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
+    }
 }

@@ -1,17 +1,15 @@
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui;
 
-import org.osgi.framework.BundleContext;
-
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -30,6 +28,10 @@ public class Activator extends AbstractUIPlugin {
 	private ScopedPreferenceStore preferenceStore;
 	
 	public Activator() {
+        plugin = this;
+        // TODO move to preference page
+        this.getPreferenceStore().setValue(UiPreferences.DEVELOPER_NAME, "Tim");
+        
 	}
 
 	/*
@@ -38,7 +40,6 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		plugin = this;
 	}
 
 	/*
@@ -73,11 +74,11 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public IPersistentPreferenceStore getPreferenceStore() {
 		// Create the preference store lazily.
-		if (preferenceStore == null) {
-			preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, getBundle().getSymbolicName());
+        if (this.preferenceStore == null) {
+            this.preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, getBundle().getSymbolicName());
 
 		}
-		return preferenceStore;
+        return this.preferenceStore;
 	}
 	
 

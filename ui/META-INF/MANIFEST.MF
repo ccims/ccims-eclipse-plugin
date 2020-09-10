@@ -12,7 +12,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.parsley.views,
  org.eclipse.xtext.xbase.lib,
  ccims-eclipse-plugin-data;bundle-version="1.0.0",
- ccims-eclipse-plugin-logic;bundle-version="1.0.0"
+ ccims-eclipse-plugin-logic;bundle-version="1.0.0",
+ org.eclipse.ui.ide;bundle-version="3.17.100",
+ org.eclipse.core.resources;bundle-version="3.13.700"
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-11
