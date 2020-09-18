@@ -16,6 +16,7 @@ import org.eclipse.emf.parsley.composite.TableFormComposite;
 import org.eclipse.emf.parsley.composite.TableFormFactory;
 import org.eclipse.emf.parsley.views.AbstractSaveableTableView;
 import org.eclipse.emf.parsley.views.AbstractSaveableViewerView;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -31,7 +32,11 @@ import com.google.inject.Inject;
  * @author Tim Neumann - add method for children to get the composite
  */
 public abstract class AbstractSaveableTableFormView extends AbstractSaveableViewerView {
-
+    /**
+     * The key used to store this view in the data of the TableFormComposite.
+     */
+    public static final String DATA_KEY_CONTAINING_VIEW = "containingAbstractSaveableTableFormView";
+    
 	@Inject
 	private TableFormFactory tableFormFactory;
 
@@ -41,22 +46,43 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 
-		tableFormComposite = tableFormFactory
+        this.tableFormComposite = this.tableFormFactory
 			.createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
-		tableFormComposite.update(getResource());
+        this.tableFormComposite.update(getResource());
 
 		afterCreateViewer();
+        this.tableFormComposite.setData(DATA_KEY_CONTAINING_VIEW, this);
 	}
 
 	@Override
 	public void setFocus() {
-		tableFormComposite.setFocus();
+        this.tableFormComposite.setFocus();
 	}
 
 	@Override
 	public StructuredViewer getViewer() {
-		return tableFormComposite.getViewer();
+        return this.tableFormComposite.getViewer();
 	}
+    
+    /**
+     * Set the selection in the table of this view.
+     * 
+     * @param selection The selection to set
+     * 
+     * @throws IllegalStateException if the view has not yet been initialized or the
+     *                               slection proved is not set
+     */
+    public void setSelection(ISelection selection) {
+        var site = getSite();
+        if (site == null) {
+            throw new IllegalStateException("View has not yet been initialized");
+        }
+        var selectionProvicer = site.getSelectionProvider();
+        if (selectionProvicer == null) {
+            throw new IllegalStateException("No selection provider set");
+        }
+        selectionProvicer.setSelection(selection);
+    }
 
 	/**
 	 * @return the {@link EClass} for objects to be shown in the table
@@ -67,7 +93,7 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
 	 * @return the composite used by this view
 	 */
 	protected TableFormComposite getComposite() {
-		return tableFormComposite;
+        return this.tableFormComposite;
 	}
     
     /**
@@ -82,7 +108,7 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
                 child.dispose();
             }
         }
-        this.tableFormComposite = tableFormFactory
+        this.tableFormComposite = this.tableFormFactory
                 .createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
     }
 }
