@@ -10,6 +10,7 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.LabelIconProvider;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.LocationLabelCalculator;
+import java.net.URI;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.parsley.ui.provider.ViewerLabelProvider;
 
@@ -31,7 +32,7 @@ public class UiLabelProvider extends ViewerLabelProvider {
   }
   
   public String text(final CrossComponentIssueManagementSystem it) {
-    String _locationUri = it.getLocationUri();
+    URI _locationUri = it.getLocationUri();
     String _plus = ("CCIMS at " + _locationUri);
     return _plus;
   }

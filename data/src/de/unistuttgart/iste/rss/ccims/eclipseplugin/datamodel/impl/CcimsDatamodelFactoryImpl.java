@@ -5,7 +5,10 @@ package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl;
 
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.*;
 
+import java.net.URI;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -73,6 +76,36 @@ public class CcimsDatamodelFactoryImpl extends EFactoryImpl implements CcimsData
             case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM: return createCrossComponentIssueManagementSystem();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString(EDataType eDataType, String initialValue) {
+        switch (eDataType.getClassifierID()) {
+            case CcimsDatamodelPackage.URI:
+                return createURIFromString(eDataType, initialValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString(EDataType eDataType, Object instanceValue) {
+        switch (eDataType.getClassifierID()) {
+            case CcimsDatamodelPackage.URI:
+                return convertURIToString(eDataType, instanceValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
     }
 
@@ -151,6 +184,24 @@ public class CcimsDatamodelFactoryImpl extends EFactoryImpl implements CcimsData
     public CrossComponentIssueManagementSystem createCrossComponentIssueManagementSystem() {
         CrossComponentIssueManagementSystemImpl crossComponentIssueManagementSystem = new CrossComponentIssueManagementSystemImpl();
         return crossComponentIssueManagementSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public URI createURIFromString(EDataType eDataType, String initialValue) {
+        return (URI)super.createFromString(eDataType, initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertURIToString(EDataType eDataType, Object instanceValue) {
+        return super.convertToString(eDataType, instanceValue);
     }
 
     /**

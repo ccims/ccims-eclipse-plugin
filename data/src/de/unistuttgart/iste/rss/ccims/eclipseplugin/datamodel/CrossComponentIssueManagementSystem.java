@@ -3,6 +3,8 @@
  */
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel;
 
+import java.net.URI;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -88,12 +90,12 @@ public interface CrossComponentIssueManagementSystem extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Location Uri</em>' attribute.
-     * @see #setLocationUri(String)
+     * @see #setLocationUri(URI)
      * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage#getCrossComponentIssueManagementSystem_LocationUri()
-     * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+     * @model dataType="de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.URI" required="true" ordered="false"
      * @generated
      */
-    String getLocationUri();
+    URI getLocationUri();
 
     /**
      * Sets the value of the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssueManagementSystem#getLocationUri <em>Location Uri</em>}' attribute.
@@ -103,6 +105,6 @@ public interface CrossComponentIssueManagementSystem extends EObject {
      * @see #getLocationUri()
      * @generated
      */
-    void setLocationUri(String value);
+    void setLocationUri(URI value);
 
 } // CrossComponentIssueManagementSystem

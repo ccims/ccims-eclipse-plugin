@@ -3,6 +3,8 @@
  */
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel;
 
+import java.net.URI;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -37,12 +39,12 @@ public interface Location extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Resource Path</em>' attribute.
-     * @see #setResourcePath(String)
+     * @see #setResourcePath(URI)
      * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage#getLocation_ResourcePath()
-     * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+     * @model dataType="de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.URI" required="true" ordered="false"
      * @generated
      */
-    String getResourcePath();
+    URI getResourcePath();
 
     /**
      * Sets the value of the '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location#getResourcePath <em>Resource Path</em>}' attribute.
@@ -52,7 +54,7 @@ public interface Location extends EObject {
      * @see #getResourcePath()
      * @generated
      */
-    void setResourcePath(String value);
+    void setResourcePath(URI value);
 
     /**
      * Returns the value of the '<em><b>Line</b></em>' attribute.

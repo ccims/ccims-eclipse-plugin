@@ -15,6 +15,7 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -84,6 +85,13 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
      * @generated
      */
     private EClass crossComponentIssueManagementSystemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType uriEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -465,6 +473,16 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
      * @generated
      */
     @Override
+    public EDataType getURI() {
+        return uriEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public CcimsDatamodelFactory getCcimsDatamodelFactory() {
         return (CcimsDatamodelFactory)getEFactoryInstance();
     }
@@ -525,6 +543,9 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
         createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__DEVELOPERS);
         createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__COMPONENTS);
         createEAttribute(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI);
+
+        // Create data types
+        uriEDataType = createEDataType(URI);
     }
 
     /**
@@ -586,7 +607,7 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
         initEAttribute(getLabel_Name(), theTypesPackage.getString(), "name", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getLocation_ResourcePath(), theTypesPackage.getString(), "resourcePath", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getLocation_ResourcePath(), this.getURI(), "resourcePath", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         initEAttribute(getLocation_Line(), theTypesPackage.getInteger(), "line", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         initEReference(getLocation_Component(), this.getComponent(), null, "component", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         initEReference(getLocation_Interface(), this.getInterface(), null, "interface", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -596,7 +617,10 @@ public class CcimsDatamodelPackageImpl extends EPackageImpl implements CcimsData
         initEReference(getCrossComponentIssueManagementSystem_Labels(), this.getLabel(), null, "labels", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         initEReference(getCrossComponentIssueManagementSystem_Developers(), this.getDeveloper(), null, "developers", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         initEReference(getCrossComponentIssueManagementSystem_Components(), this.getComponent(), null, "components", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEAttribute(getCrossComponentIssueManagementSystem_LocationUri(), theTypesPackage.getString(), "locationUri", null, 1, 1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getCrossComponentIssueManagementSystem_LocationUri(), this.getURI(), "locationUri", null, 1, 1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+        // Initialize data types
+        initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
         // Create resource
         createResource(eNS_URI);

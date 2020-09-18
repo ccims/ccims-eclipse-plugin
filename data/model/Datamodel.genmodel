@@ -7,6 +7,7 @@
   <foreignModel>Datamodel.ecore</foreignModel>
   <genPackages prefix="CcimsDatamodel" basePackage="de.unistuttgart.iste.rss.ccims.eclipseplugin"
       disposableProviderFactory="true" ecorePackage="Datamodel.ecore#/">
+    <genDataTypes ecoreDataType="Datamodel.ecore#//URI"/>
     <genClasses ecoreClass="Datamodel.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Component/providedInterfaces"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Datamodel.ecore#//Component/consumedInterfaces"/>

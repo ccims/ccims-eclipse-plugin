@@ -5,6 +5,7 @@ package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -477,6 +478,16 @@ public interface CcimsDatamodelPackage extends EPackage {
      */
     int CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM_OPERATION_COUNT = 0;
 
+    /**
+     * The meta object id for the '<em>URI</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.net.URI
+     * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getURI()
+     * @generated
+     */
+    int URI = 7;
+
 
     /**
      * Returns the meta object for class '{@link de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component <em>Component</em>}'.
@@ -813,6 +824,17 @@ public interface CcimsDatamodelPackage extends EPackage {
     EAttribute getCrossComponentIssueManagementSystem_LocationUri();
 
     /**
+     * Returns the meta object for data type '{@link java.net.URI <em>URI</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>URI</em>'.
+     * @see java.net.URI
+     * @model instanceClass="java.net.URI"
+     * @generated
+     */
+    EDataType getURI();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1096,6 +1118,16 @@ public interface CcimsDatamodelPackage extends EPackage {
          * @generated
          */
         EAttribute CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI = eINSTANCE.getCrossComponentIssueManagementSystem_LocationUri();
+
+        /**
+         * The meta object literal for the '<em>URI</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see java.net.URI
+         * @see de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.impl.CcimsDatamodelPackageImpl#getURI()
+         * @generated
+         */
+        EDataType URI = eINSTANCE.getURI();
 
     }
 

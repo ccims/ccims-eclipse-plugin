@@ -8,6 +8,8 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Interface;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location;
 
+import java.net.URI;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -48,7 +50,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
      * @generated
      * @ordered
      */
-    protected static final String RESOURCE_PATH_EDEFAULT = null;
+    protected static final URI RESOURCE_PATH_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getResourcePath() <em>Resource Path</em>}' attribute.
@@ -58,7 +60,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
      * @generated
      * @ordered
      */
-    protected String resourcePath = RESOURCE_PATH_EDEFAULT;
+    protected URI resourcePath = RESOURCE_PATH_EDEFAULT;
 
     /**
      * The default value of the '{@link #getLine() <em>Line</em>}' attribute.
@@ -125,7 +127,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
      * @generated
      */
     @Override
-    public String getResourcePath() {
+    public URI getResourcePath() {
         return resourcePath;
     }
 
@@ -135,8 +137,8 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
      * @generated
      */
     @Override
-    public void setResourcePath(String newResourcePath) {
-        String oldResourcePath = resourcePath;
+    public void setResourcePath(URI newResourcePath) {
+        URI oldResourcePath = resourcePath;
         resourcePath = newResourcePath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, CcimsDatamodelPackage.LOCATION__RESOURCE_PATH, oldResourcePath, resourcePath));
@@ -277,7 +279,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case CcimsDatamodelPackage.LOCATION__RESOURCE_PATH:
-                setResourcePath((String)newValue);
+                setResourcePath((URI)newValue);
                 return;
             case CcimsDatamodelPackage.LOCATION__LINE:
                 setLine((Integer)newValue);

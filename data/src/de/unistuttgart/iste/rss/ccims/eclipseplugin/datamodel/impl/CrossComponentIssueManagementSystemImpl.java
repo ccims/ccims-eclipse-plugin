@@ -10,6 +10,8 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssu
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Developer;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Label;
 
+import java.net.URI;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -99,7 +101,7 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
      * @generated
      * @ordered
      */
-    protected static final String LOCATION_URI_EDEFAULT = null;
+    protected static final URI LOCATION_URI_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getLocationUri() <em>Location Uri</em>}' attribute.
@@ -109,7 +111,7 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
      * @generated
      * @ordered
      */
-    protected String locationUri = LOCATION_URI_EDEFAULT;
+    protected URI locationUri = LOCATION_URI_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -188,7 +190,7 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
      * @generated
      */
     @Override
-    public String getLocationUri() {
+    public URI getLocationUri() {
         return locationUri;
     }
 
@@ -198,8 +200,8 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
      * @generated
      */
     @Override
-    public void setLocationUri(String newLocationUri) {
-        String oldLocationUri = locationUri;
+    public void setLocationUri(URI newLocationUri) {
+        URI oldLocationUri = locationUri;
         locationUri = newLocationUri;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI, oldLocationUri, locationUri));
@@ -275,7 +277,7 @@ public class CrossComponentIssueManagementSystemImpl extends MinimalEObjectImpl.
                 getComponents().addAll((Collection<? extends Component>)newValue);
                 return;
             case CcimsDatamodelPackage.CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI:
-                setLocationUri((String)newValue);
+                setLocationUri((URI)newValue);
                 return;
             default:
                 super.eSet(featureID, newValue);

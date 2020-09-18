@@ -3,6 +3,8 @@
  */
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -119,12 +121,12 @@ public class MockDataGenerator {
             for (int i = 0; i < count; i++) {
                 Location location = CcimsDatamodelFactory.eINSTANCE.createLocation();
                 if (rng.nextBoolean()) {
-                    location.setLine(rng.nextInt(5000));
+                    location.setLine(rng.nextInt(5000) + 1);
                 } else {
-                    location.setLine(-1);
+                    location.setLine(0);
                 }
                 
-                location.setResourcePath("projectX/Y/Z.java");
+                location.setResourcePath(uri("projectX/Y/Z.java"));
                 if(rng.nextBoolean()) {
                     Interface intf = interfaces.get(rng.nextInt(interfaces.size()));
                     Component comp = interfaceLocationMap.get(intf);
@@ -140,13 +142,21 @@ public class MockDataGenerator {
         
         CrossComponentIssueManagementSystem ccims = CcimsDatamodelFactory.eINSTANCE
                 .createCrossComponentIssueManagementSystem();
-        ccims.setLocationUri("local://mock");
+        ccims.setLocationUri(uri("local://mock"));
         ccims.getComponents().addAll(components);
         ccims.getDevelopers().addAll(developers);
         ccims.getLabels().addAll(labels);
         ccims.getManagedCroCoIssues().addAll(issues);
         
         return ccims;
+    }
+    
+    private static URI uri(String uri) {
+        try {
+            return new URI(uri);
+        } catch (URISyntaxException e) {
+            throw new IllegalArgumentException("Not a valid Uri", e);
+        }
     }
     
     private static Label label(String name) {
