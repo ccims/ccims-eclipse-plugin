@@ -31,11 +31,11 @@ import org.eclipse.swt.widgets.Menu;
 /**
  * A basic multi feature form control.
  * <p>
- * This has the same functionality as {@link MultipleFeatureControl}
- * 
+ * This has a similar functionality to {@link MultipleFeatureControl}
+ *            
  * @author Tim Neumann
  */
-public class BasicMultiFeatureFormControl extends AbstractMultiFeatureFormControl {
+public class BasicMultiFeatureFormControl extends AbstractMultiFeatureFormControl<Object, EObject> {
     private Label label;
     private Button button;
     private FeatureEditorDialog dialog;

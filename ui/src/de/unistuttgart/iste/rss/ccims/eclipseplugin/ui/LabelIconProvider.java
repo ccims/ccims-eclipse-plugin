@@ -4,22 +4,7 @@ import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssu
 
 public class LabelIconProvider {
     public static String getIconFor(CrossComponentIssue issue, int scale) {
-        StringBuilder file = new StringBuilder();
-        if (issue.getLabels().stream().map(l -> l.getName()).anyMatch(n -> n.toLowerCase().equals("enhancement"))) {
-            file.append("enhancement_");
-        } else {
-            file.append("bug_");
-        }
-        if (issue.isIsOpen()) {
-            if (issue.getLabels().stream().map(l -> l.getName()).anyMatch(n -> n.toLowerCase().equals("wip"))) {
-                file.append("wip");
-            } else {
-                file.append("new");
-            }
-            
-        } else {
-            file.append("done");
-        }
+        StringBuilder file = new StringBuilder(IssueType.getTypeOfIssue(issue).getIssueTypeName());
         
         String developerName = Activator.getDefault().getPreferenceStore().getString(UiPreferences.DEVELOPER_NAME);
         if(issue.getAssignees().stream().map(a -> a.getName()).anyMatch(n -> n.equals(developerName))) {

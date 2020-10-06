@@ -4,6 +4,8 @@
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.parsley.composite.ControlObservablePair;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
@@ -14,24 +16,22 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.forms.events.HyperlinkEvent;
-import org.eclipse.ui.forms.events.IHyperlinkListener;
-import org.eclipse.ui.forms.widgets.Hyperlink;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.ide.IDE;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.formcontrols.AbstractMultiFeatureFormControl;
-import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.formcontrols.MultiControlMultiFeatureFormControl;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Location;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.formcontrols.MultiHyperlinkRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.formcontrols.MultiLabelRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.formcontrols.MultipleFeatureControlObservable;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.markers.IssueMarkerIdentifier;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.views.AbstractSaveableTableFormView;
 
 /**
@@ -46,6 +46,14 @@ public class IssueFormControlFactory extends FormControlFactory {
     @Inject
     private ProposalCreator proposalCreator;
     
+    /**
+     * Get the control for the textBody field in a CrossComponentIssue form
+     * 
+     * @param source The value source
+     * @param f      The feature
+     * 
+     * @return The control
+     */
     public Control control_CrossComponentIssue_textBody(IObservableValue<?> source, EStructuralFeature f) {
         Text text = getToolkit().createText(getParent(), "", SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.BORDER);
         GridData gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
@@ -64,12 +72,12 @@ public class IssueFormControlFactory extends FormControlFactory {
      * @return The control observable pair
      */
     public ControlObservablePair control_CrossComponentIssue_labels(EStructuralFeature feature) {
-        AbstractMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
+        MultiLabelRowLayoutMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
                 feature, this.proposalCreator, isReadonly(), getToolkit());
         mfc.init();
         
-        IObservableValue<?> target = new MultipleFeatureControlObservable(
+        IObservableValue<?> target = new MultipleFeatureControlObservable<>(
                 mfc);
         return new ControlObservablePair(mfc, target);
     }
@@ -82,12 +90,12 @@ public class IssueFormControlFactory extends FormControlFactory {
      * @return The control observable pair
      */
     public ControlObservablePair control_CrossComponentIssue_assignees(EStructuralFeature feature) {
-        AbstractMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
+        MultiLabelRowLayoutMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
                 feature, this.proposalCreator, isReadonly(), getToolkit());
         mfc.init();
         
-        IObservableValue<?> target = new MultipleFeatureControlObservable(
+        IObservableValue<?> target = new MultipleFeatureControlObservable<>(
                 mfc);
         return new ControlObservablePair(mfc, target);
     }
@@ -100,12 +108,42 @@ public class IssueFormControlFactory extends FormControlFactory {
      * @return The control observable pair
      */
     public ControlObservablePair control_CrossComponentIssue_locations(EStructuralFeature feature) {
-        AbstractMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
-                this, this.labelProviderProvider.get(), getOwner(),
-                feature, this.proposalCreator, isReadonly(), getToolkit());
+        EObject owner = getOwner();
+        if(!(owner instanceof CrossComponentIssue)) {
+            throw new IllegalStateException("While creating control for CrossComponentIssue: Owner is not a CrossComponentIssue");
+        }
+        MultiHyperlinkRowLayoutMultiFeatureFormControl<Location, CrossComponentIssue, Location> mfc = new MultiHyperlinkRowLayoutMultiFeatureFormControl<>(
+                getParent(),
+                this, this.labelProviderProvider.get(), (CrossComponentIssue) getOwner(),
+                feature, this.proposalCreator, isReadonly(), getToolkit()) {
+            
+            @Override
+            protected Location getLinkTarget(Location value) {
+                return value;
+            }
+            
+            @Override
+            protected void onHyperlinkActivated(Location target) {
+                IssueMarkerIdentifier identifier = IssueMarkerIdentifier.createIdentifierForIssueLocation(target);
+                IMarker marker = Activator.getDefault().getMarkerRegistry().getMarker(identifier);
+                if (marker != null) {
+                    try {
+                        IWorkbenchPage page = getContainingAbstractSaveableTableFormView(this).getSite().getPage();
+                        try {
+                            IDE.openEditor(page, marker);
+                        } catch (PartInitException e) {
+                            Activator.logError("Could not open editor", e);
+                        }
+                    } catch (IllegalStateException e) {
+                        Activator.logError("Could not get active workbench page to open editor in", e);
+                    }
+                }
+            }
+            
+        };
         mfc.init();
         
-        IObservableValue<?> target = new MultipleFeatureControlObservable(
+        IObservableValue<?> target = new MultipleFeatureControlObservable<>(
                 mfc);
         return new ControlObservablePair(mfc, target);
     }
@@ -118,78 +156,45 @@ public class IssueFormControlFactory extends FormControlFactory {
      * @return The control observable pair
      */
     public ControlObservablePair control_CrossComponentIssue_linkedIssues(EStructuralFeature feature) {
-        AbstractMultiFeatureFormControl mfc = new MultiControlMultiFeatureFormControl<Hyperlink>(getParent(),
+        MultiHyperlinkRowLayoutMultiFeatureFormControl<CrossComponentIssue, EObject, CrossComponentIssue> mfc = new MultiHyperlinkRowLayoutMultiFeatureFormControl<>(
+                getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
                 feature, this.proposalCreator, isReadonly(), getToolkit()) {
-            private static final String LINKED_ISSUE_DATA_KEY = "linked_issue_data";
-            
             @Override
-            protected Layout createLayout() {
-                RowLayout layout = new RowLayout();
-                layout.fill = true;
-                layout.pack = false;
-                layout.spacing = 10;
-                
-                return layout;
+            protected CrossComponentIssue getLinkTarget(CrossComponentIssue value) {
+                return value;
             }
             
             @Override
-            protected Hyperlink createControl(Composite parent) {
-                Hyperlink label = getToolkit().createHyperlink(parent, "", SWT.NONE);
-                label.addHyperlinkListener(new IHyperlinkListener() {
-                    
-                    @Override
-                    public void linkExited(HyperlinkEvent e) {
-                        // nothing
-                    }
-                    
-                    @Override
-                    public void linkEntered(HyperlinkEvent e) {
-                        // nothing
-                    }
-                    
-                    @Override
-                    public void linkActivated(HyperlinkEvent e) {
-                        CrossComponentIssue target = ((CrossComponentIssue) e.getHref());
-                        IStructuredSelection selection = new StructuredSelection(target);
-                        Composite parent = getParent();
-                        Object containingView = null;
-                        do {
-                            containingView = parent.getData(AbstractSaveableTableFormView.DATA_KEY_CONTAINING_VIEW);
-                            parent = parent.getParent();
-                        } while (parent != null && containingView == null);
-                        if (containingView == null) {
-                            throw new IllegalStateException("Could not find containing view.");
-                        }
-                        if (!(containingView instanceof AbstractSaveableTableFormView)) {
-                            throw new IllegalStateException("Containing view is not AbstractSaveableTableFormView.");
-                        }
-                        ((AbstractSaveableTableFormView) containingView).setSelection(selection);
-                    }
-                });
-                label.setLayoutData(new RowData());
-                return label;
-            }
-            
-            @Override
-            protected void setControlValue(Hyperlink control, Object value, boolean last) {
-                String text = getLabelProvider().getText(value);
-                if (!last) {
-                    text += ",";
+            protected void onHyperlinkActivated(CrossComponentIssue target) {
+                IStructuredSelection selection = new StructuredSelection(target);
+                try {
+                    getContainingAbstractSaveableTableFormView(this).setSelection(selection);
+                } catch (IllegalStateException e) {
+                    Activator.logError("Could not select new issue", e);
                 }
-                control.setText(text);
-                if (!(value instanceof CrossComponentIssue)) {
-                    throw new IllegalStateException("Value is not a CrossComponentIssue");
-                }
-                CrossComponentIssue issue = (CrossComponentIssue) value;
-                control.setHref(issue);
             }
-            
         };
         mfc.init();
         
-        IObservableValue<?> target = new MultipleFeatureControlObservable(
+        IObservableValue<?> target = new MultipleFeatureControlObservable<>(
                 mfc);
         return new ControlObservablePair(mfc, target);
+    }
+    
+    private static AbstractSaveableTableFormView getContainingAbstractSaveableTableFormView(final Composite composite) {
+        Composite parent = composite.getParent();
+        Object containingView = null;
+        do {
+            containingView = parent.getData(AbstractSaveableTableFormView.DATA_KEY_CONTAINING_VIEW);
+            parent = parent.getParent();
+        } while (parent != null && containingView == null);
+        if (containingView == null) {
+            throw new IllegalStateException("Could not find containing view.");
+        }
+        if (!(containingView instanceof AbstractSaveableTableFormView)) {
+            throw new IllegalStateException("Containing view is not AbstractSaveableTableFormView.");
+        }
+        return ((AbstractSaveableTableFormView) containingView);
     }
 }

@@ -27,13 +27,18 @@ import org.eclipse.swt.widgets.Composite;
  * Possible customizations:
  * 
  * @author Tim Neumann
+ * 
+ * @param <V> The type of value of each feature. To allow any data set this to
+ *            Object.
+ * @param <O> The type of the owner of the features. This is the type of the
+ *            object displayed by the whole form
  */
-public abstract class AbstractMultiFeatureFormControl extends Composite {
+public abstract class AbstractMultiFeatureFormControl<V, O extends EObject> extends Composite {
     private final IWidgetFactory widgetFactory;
     private final ILabelProvider labelProvider;
     private final ProposalCreator proposalCreator;
     
-    private final EObject object;
+    private final O object;
     private final EStructuralFeature feature;
     private final boolean readonly;
     
@@ -53,7 +58,7 @@ public abstract class AbstractMultiFeatureFormControl extends Composite {
      */
     public AbstractMultiFeatureFormControl(final Composite parent, IWidgetFactory widgetFactory,
             final ILabelProvider labelProvider,
-            final EObject object, final EStructuralFeature feature, final ProposalCreator proposalCreator,
+            final O object, final EStructuralFeature feature, final ProposalCreator proposalCreator,
             boolean readonly, int style) {
         super(parent, style);
         this.widgetFactory = widgetFactory;
@@ -155,7 +160,7 @@ public abstract class AbstractMultiFeatureFormControl extends Composite {
     /**
      * @return the current value of this control
      */
-    public List<Object> getValue() {
+    public List<V> getValue() {
         ISelection selection = getValueAsSelection();
         if (selection != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
             return ((StructuredSelection) selection).toList();
@@ -177,7 +182,7 @@ public abstract class AbstractMultiFeatureFormControl extends Composite {
      * 
      * @param newValue The new value to set.
      */
-    public void setValue(List<Object> newValue) {
+    public void setValue(List<V> newValue) {
         setValue(new StructuredSelection(newValue));
     }
     
@@ -205,7 +210,7 @@ public abstract class AbstractMultiFeatureFormControl extends Composite {
     /**
      * @return the object
      */
-    protected EObject getObject() {
+    protected O getObject() {
         return this.object;
     }
     

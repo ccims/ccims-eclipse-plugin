@@ -35,11 +35,16 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
  * 
  * @author Tim Neumann
  * 
- * @param <T> The type of controls to use
+ * @param <V> The type of value of each feature. To allow any data set this to
+ *            Object.
+ * @param <O> The type of the owner of the features. This is the type of the
+ *            object displayed by the whole form
+ * @param <C> The type of controls to use
  */
-public abstract class MultiControlMultiFeatureFormControl<T extends Control> extends AbstractMultiFeatureFormControl {
+public abstract class MultiControlMultiFeatureFormControl<V, O extends EObject, C extends Control>
+        extends AbstractMultiFeatureFormControl<V, O> {
     private FormToolkit toolkit;
-    private List<T> controls = new ArrayList<>();
+    private List<C> controls = new ArrayList<>();
     private Composite container;
     private Button button;
     private FeatureEditorDialog dialog;
@@ -58,7 +63,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
      */
     public MultiControlMultiFeatureFormControl(Composite parent, IWidgetFactory widgetFactory,
             ILabelProvider labelProvider,
-            EObject object, EStructuralFeature feature, ProposalCreator proposalCreator, boolean readonly,
+            O object, EStructuralFeature feature, ProposalCreator proposalCreator, boolean readonly,
             FormToolkit toolkit) {
         super(parent, widgetFactory, labelProvider, object, feature, proposalCreator, readonly, SWT.NONE);
         this.toolkit = toolkit;
@@ -83,7 +88,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
             
             @Override
             public void widgetSelected(SelectionEvent e) {
-                List<Object> oldValue = getValue();
+                List<V> oldValue = getValue();
                 List<Object> proposals = getProposalCreator().proposals(getObject(), getFeature());
                 MultiControlMultiFeatureFormControl.this.dialog = new FeatureEditorDialog(getParent().getShell(),
                         new CachedLabelProvider(getLabelProvider()),
@@ -109,7 +114,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
     
     @Override
     protected void refreshValue() {
-        List<Object> values = getValue();
+        List<V> values = getValue();
         int controlCount = this.controls.size();
         int valueCount = values.size();
         
@@ -121,7 +126,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
         }
         
         for (int i = 0; i < toCreate; i++) {
-            T c = createControl(this.container);
+            C c = createControl(this.container);
             this.controls.add(c);
             c.setMenu(this.container.getMenu());
         }
@@ -141,7 +146,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
      * 
      * @return a new control to use
      */
-    protected abstract T createControl(Composite parent);
+    protected abstract C createControl(Composite parent);
     
     /**
      * Set the value of the given control to the given object
@@ -151,7 +156,7 @@ public abstract class MultiControlMultiFeatureFormControl<T extends Control> ext
      * @param last    Whether this is the last child control of the multi feature
      *                form control
      */
-    protected abstract void setControlValue(T control, Object value, boolean last);
+    protected abstract void setControlValue(C control, V value, boolean last);
     
     /**
      * @return the button of the control

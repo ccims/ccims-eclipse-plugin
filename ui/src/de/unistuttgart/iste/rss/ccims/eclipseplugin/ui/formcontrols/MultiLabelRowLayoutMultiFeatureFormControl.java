@@ -18,10 +18,12 @@ import org.eclipse.swt.widgets.Layout;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 /**
+ * A multi feature form control using labels in a row layout
+ * 
  * @author Tim Neumann
- *
  */
-public class MultiLabelRowLayoutMultiFeatureFormControl extends MultiControlMultiFeatureFormControl<Label> {
+public class MultiLabelRowLayoutMultiFeatureFormControl
+        extends MultiControlMultiFeatureFormControl<Object, EObject, Label> {
     
     /**
      * Create a multi label row layout multi feature form control

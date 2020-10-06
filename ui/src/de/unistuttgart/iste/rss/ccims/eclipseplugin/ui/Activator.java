@@ -2,14 +2,21 @@ package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.osgi.framework.BundleContext;
+
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.markers.MarkerManager;
+import de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.markers.MarkerRegistry;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -27,10 +34,17 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	private ScopedPreferenceStore preferenceStore;
 	
+    private MarkerRegistry markerRegistry;
+    private MarkerManager markerManager;
+    
 	public Activator() {
         plugin = this;
-        // TODO move to preference page
-        this.getPreferenceStore().setValue(UiPreferences.DEVELOPER_NAME, "Tim");
+        
+        ResourceLoader rl = UiInjectorProvider.getInjector().getInstance(ResourceLoader.class);
+        EditingDomain ed = UiInjectorProvider.getInjector().getInstance(EditingDomain.class);
+        
+        this.markerRegistry = new MarkerRegistry();
+        this.markerManager = new MarkerManager(this.markerRegistry, rl, ed, this.getResourceUri());
         
 	}
 
@@ -148,7 +162,6 @@ public class Activator extends AbstractUIPlugin {
 	 *            a localized message
 	 * @param throwable
 	 * @param show
-	 * @since 2.2
 	 */
 	public static void handleIssue(int severity, String message, Throwable throwable,
 			boolean show) {
@@ -225,6 +238,16 @@ public class Activator extends AbstractUIPlugin {
 	public static void error(String message, Throwable e) {
 		handleError(message, e, false);
 	}
+    
+    /**
+     * Utility method to log infos for this plug-in.
+     *
+     * @param message User comprehensible message
+     * @param thr     The exception through which we noticed the warning
+     */
+    public static void logInfo(final String message, final Throwable thr) {
+        handleIssue(IStatus.INFO, message, thr, false);
+    }
 
 	/**
 	 * Creates an error status
@@ -249,5 +272,27 @@ public class Activator extends AbstractUIPlugin {
 	public static IStatus createErrorStatus(String message) {
 		return toStatus(IStatus.ERROR, message, null);
 	}
+    
+    /**
+     * @return the markerRegistry
+     */
+    public MarkerRegistry getMarkerRegistry() {
+        return this.markerRegistry;
+    }
+    
+    /**
+     * Get the resource uri to use.
+     * <p>
+     * This get's the configured string from the preference store. Then it replaces
+     * some variables and creates a URI from the result.
+     * 
+     * @return the resourc euir
+     */
+    public URI getResourceUri() {
+        String uri = getPreferenceStore().getString(UiPreferences.BACKEND_URI);
+        uri = uri.replace("${user_home}", System.getProperty("user.home"));
+        uri = uri.replace("${workspace_loc}", ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
+        return URI.createURI(uri);
+    }
  
 }

@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelFactory;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.Component;
 import de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CrossComponentIssue;
@@ -120,13 +126,19 @@ public class MockDataGenerator {
             count = rng.nextInt(LOCATIONS_PER_ISSUE_MAX);
             for (int i = 0; i < count; i++) {
                 Location location = CcimsDatamodelFactory.eINSTANCE.createLocation();
+                URI uri = null;
                 if (rng.nextBoolean()) {
-                    location.setLine(rng.nextInt(5000) + 1);
+                    uri = randomValidExistingResourceUriForJavaFile(rng);
+                }
+                if (uri == null) {
+                    uri = ResourcesPlugin.getWorkspace().getRoot().getLocationURI().resolve("projectX/Y/Z.java");
+                }
+                location.setResourcePath(uri);
+                if (rng.nextBoolean()) {
+                    location.setLine(rng.nextInt(100) + 1);
                 } else {
                     location.setLine(0);
                 }
-                
-                location.setResourcePath(uri("projectX/Y/Z.java"));
                 if(rng.nextBoolean()) {
                     Interface intf = interfaces.get(rng.nextInt(interfaces.size()));
                     Component comp = interfaceLocationMap.get(intf);
@@ -157,6 +169,41 @@ public class MockDataGenerator {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Not a valid Uri", e);
         }
+    }
+    
+    /**
+     * Returns a valid uri for a existing resource if it can find one.
+     * Otherwise returns null
+     * @param rng The random number generator for randomization
+     * @return The uri or null if non could be found
+     */
+    private static URI randomValidExistingResourceUriForJavaFile(Random rng) {
+        try {
+            IFile file = findRandomJavaIFile(rng, ResourcesPlugin.getWorkspace().getRoot());
+            return file.getLocationURI();
+        } catch (CoreException e) {
+            Activator.logError("Error while searching for IFile", e);
+            return null;
+        }
+    }
+    
+    private static IFile findRandomJavaIFile(Random rng, IContainer resource) throws CoreException {
+        IResource[] members = resource.members();
+        int startingIndex = rng.nextInt(members.length);
+        int index = startingIndex;
+        do {
+            IResource member = members[index];
+            if (member instanceof IFile && member.getFileExtension().equals("java")) {
+                return (IFile) member;
+            } else if (member instanceof IContainer) {
+                IFile file = findRandomJavaIFile(rng, (IContainer) member);
+                if (file != null) {
+                    return file;
+                }
+            }
+            index = (index + 1) % members.length;
+        } while (index != startingIndex);
+        return null;
     }
     
     private static Label label(String name) {

@@ -29,4 +29,13 @@ public class UiText extends NLS {
     
     /** */
     public static String IssueList_ColumnsSubMenu_Label;
+    
+    /** */
+    public static String PreferencePage_DeveloperName_Label;
+    
+    /** */
+    public static String PreferencePage_BackendUri_Label;
+    
+    /** */
+    public static String PreferencePage_BackendUri_TooltipText;
 }

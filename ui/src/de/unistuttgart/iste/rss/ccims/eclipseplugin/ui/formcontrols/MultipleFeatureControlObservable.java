@@ -15,31 +15,32 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
  * Observable for the {@link AbstractMultiFeatureFormControl}
  * 
  * @author Tim Neumann
+ * 
+ * @param <V> The type of the value of each feature
  */
-public class MultipleFeatureControlObservable extends AbstractObservableValue<Object>
+public class MultipleFeatureControlObservable<V> extends AbstractObservableValue<List<V>>
         implements ISelectionChangedListener {
     
-    private final AbstractMultiFeatureFormControl mfc;
+    private final AbstractMultiFeatureFormControl<V, ?> mfc;
     
     /**
      * Create a new observable for the given AbstractMultiFeatureFormControl
      * 
      * @param mfc The AbstractMultiFeatureFormControl this is for
      */
-    public MultipleFeatureControlObservable(AbstractMultiFeatureFormControl mfc) {
+    public MultipleFeatureControlObservable(AbstractMultiFeatureFormControl<V, ?> mfc) {
         this.mfc = mfc;
         mfc.addSelectionChangedListener(this);
     }
     
     @Override
-    protected Object doGetValue() {
+    protected List<V> doGetValue() {
         return this.mfc.getValue();
     }
     
-    @SuppressWarnings("unchecked")
     @Override
-    protected void doSetValue(Object value) {
-        this.mfc.setValue((List<Object>) value);
+    protected void doSetValue(List<V> value) {
+        this.mfc.setValue(value);
     }
     
     @Override
@@ -52,12 +53,12 @@ public class MultipleFeatureControlObservable extends AbstractObservableValue<Ob
         fireValueChange(new ValueDiff<>() {
             
             @Override
-            public Object getOldValue() {
+            public List<V> getOldValue() {
                 return null;
             }
             
             @Override
-            public Object getNewValue() {
+            public List<V> getNewValue() {
                 return ((IStructuredSelection) event.getSelection()).toList();
             }
         });
