@@ -3,6 +3,8 @@
  */
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.util;
 
+import java.util.Arrays;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -44,7 +46,7 @@ public class LocationCopier {
      */
     public void resetCopy() {
         for (EStructuralFeature f : this.clazz.getEAllStructuralFeatures()) {
-            this.copy.eSet(f, f.getDefaultValue());
+            this.copy.eSet(f, f.isMany() ? Arrays.asList(new Object[0]) : f.getDefaultValue());
         }
     }
 }

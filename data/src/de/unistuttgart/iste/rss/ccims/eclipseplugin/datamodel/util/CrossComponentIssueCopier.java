@@ -4,6 +4,7 @@
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -63,7 +64,7 @@ public class CrossComponentIssueCopier {
      */
     public void resetCopy() {
         for (EStructuralFeature f : this.clazz.getEAllStructuralFeatures()) {
-            this.copy.eSet(f, f.getDefaultValue());
+            this.copy.eSet(f, f.isMany() ? Arrays.asList(new Object[0]) : f.getDefaultValue());
         }
         
         for (LocationCopier copier : this.locationCopiers) {
