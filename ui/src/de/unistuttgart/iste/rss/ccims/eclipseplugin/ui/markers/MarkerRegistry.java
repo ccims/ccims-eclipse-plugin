@@ -4,6 +4,7 @@
 package de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.markers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IMarker;
@@ -36,9 +37,12 @@ public class MarkerRegistry {
      * Remove the entry for the given identifier
      * 
      * @param identifier The identifier
+     * 
+     * @return the marker associated with the {@code identifier}, or {@code null} if
+     *         there was no marker for {@code identifier}.
      */
-    protected synchronized void remove(IssueMarkerIdentifier identifier) {
-        this.markers.remove(identifier);
+    protected synchronized IMarker remove(IssueMarkerIdentifier identifier) {
+        return this.markers.remove(identifier);
     }
     
     /**
@@ -61,6 +65,10 @@ public class MarkerRegistry {
      */
     public synchronized boolean contains(IssueMarkerIdentifier identifier) {
         return this.markers.containsKey(identifier);
+    }
+    
+    public synchronized List<IssueMarkerIdentifier> getKeys() {
+        return List.copyOf(this.markers.keySet());
     }
     
 }
