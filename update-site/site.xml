@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Ccims Update Site" url="https://ccims.github.io/ccims-eclipse-plugin">
+      The eclipse update site for ccims
+   </description>
+   <feature url="features/ccims_eclipse_plugin_1.0.0.202010071820.jar" id="ccims_eclipse_plugin" version="1.0.0.202010071820">
+      <category name="ccims_eclipse_plugin"/>
+   </feature>
+   <category-def name="ccims_eclipse_plugin" label="CCIMS"/>
+</site>

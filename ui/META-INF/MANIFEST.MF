@@ -1,12 +1,13 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: ccims-eclipse-plugin-ui
 Bundle-ManifestVersion: 2
-Bundle-Name: ccims-eclipse-plugin-ui
-Bundle-Vendor: My Company
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: ccims-eclipse-plugin-ui; singleton:=true
 Bundle-Activator: de.unistuttgart.iste.rss.ccims.eclipseplugin.ui.Activator
 Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.emf.parsley.views,
