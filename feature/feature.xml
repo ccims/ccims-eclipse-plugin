@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="ccims_eclipse_plugin"
-      label="Ccims Eclipse Integration"
+      id="de.unistuttgart.iste.gropius.ei"
+      label="Gropius Eclipse Integration"
       version="1.0.0.qualifier"
       provider-name="SQA, ISTE, Uni Stuttgart">
 
-   <description url="https://github.com/ccims/ccims-eclipse-plugin">
-      CCIMS Eclipse Plugin
+   <description url="https://github.com/ccims/gropius.ei">
+      Gropius Eclipse Integration
    </description>
 
    <copyright>
       Copyright(c) 2020 Tim Neumann
    </copyright>
 
-   <license url="https://github.com/ccims/ccims-eclipse-plugin/blob/master/LICENSE">
+   <license url="https://github.com/ccims/gropius.ei/blob/master/LICENSE">
       Mozilla Public License Version 2.0
 ==================================
 
@@ -370,7 +370,7 @@ notice described in Exhibit B of this License must be attached.
    </license>
 
    <url>
-      <update url="https://ccims.github.io/ccims-eclipse-plugin"/>
+      <update url="https://ccims.github.io/gropius.ei"/>
    </url>
 
    <requires>
@@ -387,21 +387,21 @@ notice described in Exhibit B of this License must be attached.
    </requires>
 
    <plugin
-         id="ccims-eclipse-plugin-logic"
+         id="de.unistuttgart.iste.gropius.ei.data"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ccims-eclipse-plugin-data"
+         id="de.unistuttgart.iste.gropius.ei.logic"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ccims-eclipse-plugin-ui"
+         id="de.unistuttgart.iste.gropius.ei.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="de.unistuttgart.iste.gropius.ei.ui.category"
+            class="de.unistuttgart.iste.gropius.ei.ui.UiExecutableExtensionFactory:de.unistuttgart.iste.gropius.ei.ui.views.IssueListView"
+            id="de.unistuttgart.iste.gropius.ei.ui.issueList"
+            name="IssueList"
+            restorable="true">
+      </view>
+      <view
+            category="de.unistuttgart.iste.gropius.ei.ui.category"
+            class="de.unistuttgart.iste.gropius.ei.ui.UiExecutableExtensionFactory:de.unistuttgart.iste.gropius.ei.ui.views.DebugMasterView"
+            id="de.unistuttgart.iste.gropius.ei.ui.debugMasterView"
+            name="DebugMaster"
+            restorable="true">
+      </view>
+   </extension>
+</plugin>

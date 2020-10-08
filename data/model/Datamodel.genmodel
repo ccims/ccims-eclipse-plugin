@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020 Tim Neumann" modelDirectory="/ccims-eclipse-plugin-data/src-gen"
-    modelPluginID="ccims-eclipse-plugin-data" modelName="Datamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020 Tim Neumann" modelDirectory="/gropius.ei.data/src-gen"
+    editDirectory="/gropius.ei.data.edit/src" modelPluginID="de.unistuttgart.iste.gropius.ei.data"
+    modelName="Datamodel" editPluginClass="de.unistuttgart.iste.gropius.ei.data.provider.DatamodelEditPlugin"
+    editorPluginClass="de.unistuttgart.iste.gropius.ei.data.presentation.DatamodelEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="de.unistuttgart.iste.gropius.ei.data.tests.DatamodelAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" usedGenPackages="../../org.eclipse.uml2.types/model/Types.genmodel#//types"
     operationReflection="true" importOrganizing="true">
   <foreignModel>Datamodel.ecore</foreignModel>
-  <genPackages prefix="CcimsDatamodel" basePackage="de.unistuttgart.iste.rss.ccims.eclipseplugin"
+  <genPackages prefix="GropiusData" basePackage="de.unistuttgart.iste.gropius.ei"
       disposableProviderFactory="true" ecorePackage="Datamodel.ecore#/">
     <genDataTypes ecoreDataType="Datamodel.ecore#//URI"/>
     <genClasses ecoreClass="Datamodel.ecore#//Component">

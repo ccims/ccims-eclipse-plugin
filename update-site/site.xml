@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Ccims Update Site" url="https://ccims.github.io/ccims-eclipse-plugin">
-      The eclipse update site for ccims
+   <description name="Gropius EI Update Site" url="https://ccims.github.io/gropius.ei">
+      The eclipse update site for Gropius EI
    </description>
-   <feature url="features/ccims_eclipse_plugin_1.0.0.202010071820.jar" id="ccims_eclipse_plugin" version="1.0.0.202010071820">
-      <category name="ccims_eclipse_plugin"/>
+   <feature url="features/de.unistuttgart.iste.gropius.ei_1.0.0.202010081659.jar" id="de.unistuttgart.iste.gropius.ei" version="1.0.0.202010081659">
+      <category name="de.unistuttgart.iste.gropius"/>
    </feature>
-   <category-def name="ccims_eclipse_plugin" label="CCIMS"/>
+   <category-def name="de.unistuttgart.iste.gropius" label="Gropius"/>
 </site>

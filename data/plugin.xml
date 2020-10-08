@@ -10,8 +10,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Datamodel -->
       <package
-            uri="http://ccims.rss.iste.unistuttgart.de/eclipseplugin/data"
-            class="de.unistuttgart.iste.rss.ccims.eclipseplugin.datamodel.CcimsDatamodelPackage"
+            uri="http://gropius.iste.unistuttgart.de/ei/"
+            class="de.unistuttgart.iste.gropius.ei.data.GropiusDataPackage"
             genModel="model/Datamodel.genmodel"/>
    </extension>
 

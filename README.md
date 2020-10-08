@@ -1,3 +1,3 @@
-# ccims-eclipse-plugin
+# Gropius Eclipse Integration
 
-An eclipse plugin for the ccims ecosystem
+A set of eclipse plugins for the gropius ecosystem

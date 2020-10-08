@@ -1,0 +1,89 @@
+import de.unistuttgart.iste.gropius.ei.ui.views.IssueListView
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain
+import org.eclipse.emf.parsley.edit.domain.GlobalAdapterFactoryEditingDomainProvider
+import org.eclipse.emf.parsley.edit.ui.provider.TableViewerContentProvider
+import de.unistuttgart.iste.gropius.ei.ui.views.DebugMasterView
+import de.unistuttgart.iste.gropius.ei.data.CrossComponentIssue
+import de.unistuttgart.iste.gropius.ei.data.Component
+import de.unistuttgart.iste.gropius.ei.data.CrossComponentIssueManagementSystem
+import de.unistuttgart.iste.gropius.ei.data.Developer
+import de.unistuttgart.iste.gropius.ei.data.Interface
+import de.unistuttgart.iste.gropius.ei.data.Label
+import de.unistuttgart.iste.gropius.ei.data.Location
+import org.eclipse.emf.parsley.ui.provider.FeaturesProvider
+import org.eclipse.emf.parsley.composite.FormControlFactory
+import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider
+import de.unistuttgart.iste.gropius.ei.data.GropiusDataPackage
+
+module de.unistuttgart.iste.gropius.ei.ui {
+	bindings {
+		provide AdapterFactoryEditingDomain -> GlobalAdapterFactoryEditingDomainProvider
+		type TableViewerContentProvider -> IssueViewsFilteredContentProvider
+		type FeaturesProvider -> IssueFormFeaturesProvider
+		type TableFeaturesProvider -> IssueTableFeaturesProvider
+		type FormControlFactory -> IssueFormControlFactory
+	}
+	
+	parts {
+		viewpart de.unistuttgart.iste.gropius.ei.ui.issueList {
+			viewname "IssueList"
+			viewclass IssueListView
+			viewcategory de.unistuttgart.iste.gropius.ei.ui.category
+		}
+
+		viewpart de.unistuttgart.iste.gropius.ei.ui.debugMasterView {
+			viewname "DebugMaster"
+			viewclass DebugMasterView
+			viewcategory de.unistuttgart.iste.gropius.ei.ui.category
+		}
+	}
+	
+	labelProvider {
+		text {
+			CrossComponentIssue -> title
+			Component -> name
+			CrossComponentIssueManagementSystem -> "CCIMS at " + locationUri
+			Developer -> name
+			Interface -> name
+			Label -> name
+			Location -> LocationLabelCalculator.calculateLabelForLocation(it)
+		}
+		image{
+			CrossComponentIssue -> {
+				LabelIconProvider.getIconFor(it, 4);
+			}
+		}
+	}
+
+	tableLabelProvider {
+		image {
+			CrossComponentIssue : title -> {
+				LabelIconProvider.getIconFor(it, 2);
+			}
+		}
+	}
+	
+	configurator {
+		eClass {
+			IssueListView -> {
+				return GropiusDataPackage.eINSTANCE.crossComponentIssue
+			}
+		}
+
+		resourceURI {
+			IssueListView -> {
+				return Activator.^default.resourceUri
+			}
+
+			DebugMasterView -> {
+				return Activator.^default.resourceUri
+			}
+		}
+	}
+
+	resourceManager {
+		initializeResource {
+			it.getContents += MockDataGenerator.generateMockData;
+		}
+	}
+}
