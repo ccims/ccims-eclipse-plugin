@@ -1,5 +1,23 @@
 /**
+ * Copyright (C) 2020, Tim Neumann <neumantm@fius.informatik.uni-stuttgart.de>
  * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * <p>
+ * Based on org.eclipse.emf.parsley.composite.MultipleFeatureControl.
+ * It was licensed under Eclipse Public License v1.0 there.
+ * It had these contributors there:
+ * 
+ * Copyright (c) 2008, 2013 itemis AG and others.
+ * Contributors:
+ * itemis AG - Initial API and implementation
+ * Lorenzo Bettini - refactoring for EmfParsley
+ * </p>
  */
 package de.unistuttgart.iste.gropius.ei.ui.formcontrols;
 
@@ -32,8 +50,13 @@ import org.eclipse.swt.widgets.Menu;
  * A basic multi feature form control.
  * <p>
  * This has a similar functionality to {@link MultipleFeatureControl}
- *            
+ * 
  * @author Tim Neumann
+ *         <p>
+ *         Based on {@link org.eclipse.emf.parsley.composite.MultipleFeatureControl} with these
+ *         authors:
+ * @author Dennis Huebner
+ * @author Lorenzo Bettini (modifications)
  */
 public class BasicMultiFeatureFormControl extends AbstractMultiFeatureFormControl<Object, EObject> {
     private Label label;

@@ -1,13 +1,23 @@
-/*******************************************************************************
- * Copyright (c) 2013 RCP Vision (http://www.rcp-vision.com) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+/**
+ * Copyright (C) 2020, Tim Neumann <neumantm@fius.informatik.uni-stuttgart.de>
  * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * <p>
+ * Based on org.eclipse.emf.parsley.views.AbstractSaveableTableFormView.
+ * It was licensed under Eclipse Public License v1.0 there.
+ * It had these contributors there:
+ * 
+ * Copyright (c) 2013 RCP Vision (http://www.rcp-vision.com) and others.
  * Contributors:
  * Francesco Guidieri - Initial contribution and API
- *******************************************************************************/
+ * </p>
+ */
 package de.unistuttgart.iste.gropius.ei.ui.views;
 
 
@@ -25,6 +35,10 @@ import org.eclipse.swt.widgets.Control;
 import com.google.inject.Inject;
 
 /**
+ * Abstract base class for a view with a table and a form.
+ * <p>
+ * Based on {@link org.eclipse.emf.parsley.views.AbstractSaveableTableFormView}
+ * <p>
  * TODO: Remove after the changes are merged upstream
  * 
  * @author Francesco Guidieri - Initial contribution and API

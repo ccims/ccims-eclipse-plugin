@@ -1,3 +1,25 @@
+/**
+ * Copyright (C) 2020, Tim Neumann <neumantm@fius.informatik.uni-stuttgart.de>
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * <p>
+ * Based on org.eclipse.egit.ui.Activator. It had these contributors there:
+ * 
+ * Copyright (C) 2007,2010 Robin Rosenberg <robin.rosenberg@dewire.com>
+ * Copyright (C) 2008, Shawn O. Pearce <spearce@spearce.org>
+ * Copyright (C) 2010, Mathias Kinzler <mathias.kinzler@sap.com>
+ * Copyright (C) 2012, Matthias Sohn <matthias.sohn@sap.com>
+ * Copyright (C) 2015, Philipp Bumann <bumannp@gmail.com>
+ * Copyright (C) 2016, Dani Megert <daniel_megert@ch.ibm.com>
+ * Copyright (C) 2018, Thomas Wolf <thomas.wolf@paranor.ch>
+ * </p>
+ */
 package de.unistuttgart.iste.gropius.ei.ui;
 
 import java.lang.reflect.InvocationTargetException;
