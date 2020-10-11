@@ -25,6 +25,7 @@ import org.eclipse.emf.parsley.ui.provider.FeaturesProvider
 import org.eclipse.emf.parsley.composite.FormControlFactory
 import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider
 import de.unistuttgart.iste.gropius.ei.data.GropiusDataPackage
+import java.net.URI
 
 module de.unistuttgart.iste.gropius.ei.ui {
 	bindings {
@@ -58,6 +59,7 @@ module de.unistuttgart.iste.gropius.ei.ui {
 			Interface -> name
 			Label -> name
 			Location -> LocationLabelCalculator.calculateLabelForLocation(it)
+			URI -> LocationLabelCalculator.calculateLabelForLocationResourcePath(it)
 		}
 		image{
 			CrossComponentIssue -> {

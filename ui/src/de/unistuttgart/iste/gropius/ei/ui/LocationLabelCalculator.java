@@ -19,18 +19,17 @@ import de.unistuttgart.iste.gropius.ei.data.Location;
  *
  */
 public class LocationLabelCalculator {
+    /**
+     * Calculate the label for the given location
+     * 
+     * @param location The lcoation to calculate the label for
+     * 
+     * @return The label for the given location
+     */
     public static String calculateLabelForLocation(Location location) {
-        String[] pathSegements = new String[0];
-        {
-            URI resourcePath = location.getResourcePath();
-            String path = null;
-            if (resourcePath != null) {
-                path = location.getResourcePath().getPath();
-            }
-            if (path != null && !path.isEmpty()) {
-                pathSegements = path.split("/");
-            }
-        }
+        String projectName = UriHelper.projectName(location.getResourcePath());
+        String projectRelativePath = UriHelper.projectRelativePath(location.getResourcePath());
+        
         StringBuilder result = new StringBuilder();
         
         if (location.getInterface() != null) {
@@ -38,21 +37,21 @@ public class LocationLabelCalculator {
         } else if (location.getComponent() != null) {
             result.append(location.getComponent().getName());
         } else {
-            if (pathSegements.length < 2) {
+            if (projectName == null) {
                 result.append("<unknown>");
             } else {
-                result.append(pathSegements[0]);
+                result.append(projectName);
             }
         }
         
-        if (pathSegements.length < 1 && location.getLine() > 0) {
+        if (projectRelativePath == null && location.getLine() > 0) {
             result.append(":");
             result.append("<unknown>");
-        } else if (pathSegements.length < 1) {
+        } else if (projectRelativePath == null) {
             // End of result
         } else {
             result.append(":");
-            result.append(pathSegements[pathSegements.length - 1]);
+            result.append(getLastPathSegment(projectRelativePath));
         }
         
         if (location.getLine() > 0) {
@@ -60,5 +59,35 @@ public class LocationLabelCalculator {
             result.append(location.getLine());
         }
         return result.toString();
+    }
+    
+    /**
+     * Calculate the label for the given location resource path
+     * 
+     * @param resourcePath The resource path to calculate the label for
+     * 
+     * @return The label for the given resource path
+     */
+    public static String calculateLabelForLocationResourcePath(URI resourcePath) {
+        String projectName = UriHelper.projectName(resourcePath);
+        String projectRelativePath = UriHelper.projectRelativePath(resourcePath);
+        
+        StringBuilder result = new StringBuilder();
+        if (projectName == null) {
+            result.append("<unknown>");
+        } else {
+            result.append(projectName);
+        }
+        result.append("/.../");
+        if (projectRelativePath == null) {
+            result.append("<unknown>");
+        } else {
+            result.append(getLastPathSegment(projectRelativePath));
+        }
+        return result.toString();
+    }
+    
+    private static String getLastPathSegment(String path) {
+        return path.substring(path.lastIndexOf(UriHelper.URI_PATH_SEPERATOR) + 1);
     }
 }

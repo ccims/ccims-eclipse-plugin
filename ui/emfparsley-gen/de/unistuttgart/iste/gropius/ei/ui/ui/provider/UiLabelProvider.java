@@ -57,6 +57,11 @@ public class UiLabelProvider extends ViewerLabelProvider {
     return _calculateLabelForLocation;
   }
   
+  public String text(final URI it) {
+    String _calculateLabelForLocationResourcePath = LocationLabelCalculator.calculateLabelForLocationResourcePath(it);
+    return _calculateLabelForLocationResourcePath;
+  }
+  
   public Object image(final CrossComponentIssue it) {
     return LabelIconProvider.getIconFor(it, 4);
   }

@@ -10,6 +10,7 @@
  */
 package de.unistuttgart.iste.gropius.ei.ui;
 
+import java.net.URI;
 import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -44,6 +45,7 @@ import de.unistuttgart.iste.gropius.ei.ui.dialogs.FeatureEditorElementCreatorDia
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultiHyperlinkRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultiLabelRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultipleFeatureControlObservable;
+import de.unistuttgart.iste.gropius.ei.ui.formcontrols.PlatformResourceUriFormControl;
 import de.unistuttgart.iste.gropius.ei.ui.markers.IssueMarkerIdentifier;
 import de.unistuttgart.iste.gropius.ei.ui.views.AbstractSaveableTableFormView;
 
@@ -212,6 +214,20 @@ public class IssueFormControlFactory extends FormControlFactory {
         IObservableValue<?> target = new MultipleFeatureControlObservable<>(
                 mfc);
         return new ControlObservablePair(mfc, target);
+    }
+    
+    /**
+     * Get the control for the resource path field in a Location from
+     * 
+     * @param feature The feature
+     * 
+     * @return The control observable pair
+     */
+    public ControlObservablePair control_Location_resourcePath(EStructuralFeature feature) {
+        PlatformResourceUriFormControl prufc = new PlatformResourceUriFormControl(getParent(), this,
+                this.labelProviderProvider.get());
+        IObservableValue<URI> target = prufc.new Observable();
+        return new ControlObservablePair(prufc, target);
     }
     
     private static AbstractSaveableTableFormView getContainingAbstractSaveableTableFormView(final Composite composite) {

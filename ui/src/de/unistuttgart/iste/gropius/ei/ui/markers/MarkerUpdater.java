@@ -19,9 +19,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -146,23 +144,11 @@ public class MarkerUpdater {
         }
         
         private void doCreation(IssueMarkerIdentifier identifier) throws CoreException {
-            String projectName = UriHelper.projectName(identifier.getLocation());
-            if(projectName == null) {
-                doCreation(ResourcesPlugin.getWorkspace().getRoot(), identifier);
-                return;
-            }
+            IResource resource = UriHelper.findResource(identifier.getLocation());
             
-            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-            if (!project.exists() || !project.isOpen()) {
-                return;
-            }
-            String projectRelativePath = UriHelper.projectRelativePath(identifier.getLocation());
-            if (projectRelativePath == null) {
-                doCreation(project, identifier);
-                return;
-            }
-            IResource resource = project.findMember(projectRelativePath);
-            if (!resource.exists()) {
+            if (!resource.exists() || (resource.getProject() != null && !resource.getProject().isOpen())) {
+                // If resource has no project, the resource is worksapce root.
+                // For worspace root wo do create a marker.
                 return;
             }
             doCreation(resource, identifier);

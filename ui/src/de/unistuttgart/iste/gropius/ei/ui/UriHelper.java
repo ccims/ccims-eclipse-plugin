@@ -227,6 +227,31 @@ public class UriHelper {
         return resourceURI(path);
     }
     
+    /**
+     * Find the resource for the given platform resource uri
+     * <p>
+     * Returns the workspace root if the resource has no path
+     * 
+     * @param uri The uri to get the resource for
+     * 
+     * @return The resource for the given uri *
+     */
+    public static IResource findResource(URI uri) {
+        String projectName = UriHelper.projectName(uri);
+        if (projectName == null) {
+            return ResourcesPlugin.getWorkspace().getRoot();
+        }
+        
+        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+        
+        String projectRelativePath = UriHelper.projectRelativePath(uri);
+        if (projectRelativePath == null) {
+            return project;
+        }
+        IResource resource = project.findMember(projectRelativePath);
+        return resource;
+    }
+    
     private static IProject findProjectForPath(String path) {
         for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
             if (path.startsWith(project.getLocationURI().getPath())) {
