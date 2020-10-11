@@ -48,4 +48,10 @@ public class UiText extends NLS {
     
     /** */
     public static String PreferencePage_BackendUri_TooltipText;
+    
+    /** */
+    public static String FeatureEditorElementCreatorDialog_Creation_Label;
+    
+    /** */
+    public static String FeatureEditorElementCreatorDialog_Button_New_Text;
 }

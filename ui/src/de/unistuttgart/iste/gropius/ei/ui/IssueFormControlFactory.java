@@ -10,17 +10,21 @@
  */
 package de.unistuttgart.iste.gropius.ei.ui;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.parsley.composite.ControlObservablePair;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
+import org.eclipse.emf.parsley.composite.FormFactory;
 import org.eclipse.emf.parsley.composite.ProposalCreator;
 import org.eclipse.emf.parsley.util.DatabindingUtil;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -34,7 +38,9 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import de.unistuttgart.iste.gropius.ei.data.CrossComponentIssue;
+import de.unistuttgart.iste.gropius.ei.data.GropiusDataFactory;
 import de.unistuttgart.iste.gropius.ei.data.Location;
+import de.unistuttgart.iste.gropius.ei.ui.dialogs.FeatureEditorElementCreatorDialog;
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultiHyperlinkRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultiLabelRowLayoutMultiFeatureFormControl;
 import de.unistuttgart.iste.gropius.ei.ui.formcontrols.MultipleFeatureControlObservable;
@@ -52,6 +58,9 @@ public class IssueFormControlFactory extends FormControlFactory {
     
     @Inject
     private ProposalCreator proposalCreator;
+    
+    @Inject
+    private FormFactory formFactory;
     
     /**
      * Get the control for the textBody field in a CrossComponentIssue form
@@ -147,6 +156,22 @@ public class IssueFormControlFactory extends FormControlFactory {
                 }
             }
             
+            protected java.util.List<?> openChangeDialog() {
+                List<Location> oldValue = getValue();
+                
+                FeatureEditorElementCreatorDialog dialog = new FeatureEditorElementCreatorDialog(getShell(),
+                        getLabelProvider(), IssueFormControlFactory.this.formFactory,
+                        getObject(), oldValue, () -> {
+                            Location loc = GropiusDataFactory.eINSTANCE.createLocation();
+                            getObject().getLocations().add(loc);
+                            return loc;
+                        }, "Select");
+                dialog.setBlockOnOpen(true);
+                if (dialog.open() == Window.OK) {
+                    return dialog.getResult();
+                }
+                return null;
+            }
         };
         mfc.init();
         

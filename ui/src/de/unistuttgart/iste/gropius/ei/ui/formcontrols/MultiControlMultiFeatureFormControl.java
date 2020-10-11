@@ -70,7 +70,6 @@ public abstract class MultiControlMultiFeatureFormControl<V, O extends EObject, 
     private List<C> controls = new ArrayList<>();
     private Composite container;
     private Button button;
-    private FeatureEditorDialog dialog;
     
     /**
      * Create a multi control multi feature form control
@@ -111,22 +110,35 @@ public abstract class MultiControlMultiFeatureFormControl<V, O extends EObject, 
             
             @Override
             public void widgetSelected(SelectionEvent e) {
-                List<V> oldValue = getValue();
-                List<Object> proposals = getProposalCreator().proposals(getObject(), getFeature());
-                MultiControlMultiFeatureFormControl.this.dialog = new FeatureEditorDialog(getParent().getShell(),
-                        new CachedLabelProvider(getLabelProvider()),
-                        getObject(),
-                        getFeature().getEType(), oldValue, "Select", proposals, false,
-                        getFeature().isOrdered(), proposals != null);
-                MultiControlMultiFeatureFormControl.this.dialog.setBlockOnOpen(true);
-                if (MultiControlMultiFeatureFormControl.this.dialog.open() == Window.OK) {
-                    setValue(new StructuredSelection(
-                            MultiControlMultiFeatureFormControl.this.dialog.getResult().toArray()));
+                List<?> result = openChangeDialog();
+                if (result != null) {
+                    setValue(new StructuredSelection(result.toArray()));
                 }
             }
         });
         
         this.button.setVisible(!isReadonly());
+    }
+    
+    /**
+     * Open a dialog to allow the user to change the data of this control and return
+     * the resulting new data.
+     * 
+     * @return the new data or {@code null} if the data should not be changed
+     */
+    protected List<?> openChangeDialog() {
+        List<V> oldValue = getValue();
+        List<Object> proposals = getProposalCreator().proposals(getObject(), getFeature());
+        FeatureEditorDialog dialog = new FeatureEditorDialog(getParent().getShell(),
+                new CachedLabelProvider(getLabelProvider()),
+                getObject(),
+                getFeature().getEType(), oldValue, "Select", proposals, false,
+                getFeature().isOrdered(), proposals != null);
+        dialog.setBlockOnOpen(true);
+        if (dialog.open() == Window.OK) {
+            return dialog.getResult();
+        }
+        return null;
     }
     
     @Override

@@ -51,7 +51,10 @@ public class IssueMarkerIdentifier {
             throw new IllegalStateException("Location is not contained in an issue");
         }
         CrossComponentIssue issue = (CrossComponentIssue) location.eContainer();
-        return new IssueMarkerIdentifier(location.getResourcePath(), location.getLine(), issue.getTitle(),
+        // Make sure the URI is absolute. It should already be absolute, then do nothing.
+        // Else assume file scheme
+        URI absoluteUri = URI.create("file://").resolve(location.getResourcePath());
+        return new IssueMarkerIdentifier(absoluteUri, location.getLine(), issue.getTitle(),
                 IssueType.getTypeOfIssue(issue));
     }
     
