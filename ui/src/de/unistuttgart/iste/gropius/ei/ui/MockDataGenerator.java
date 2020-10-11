@@ -134,11 +134,9 @@ public class MockDataGenerator {
             for (int i = 0; i < count; i++) {
                 Location location = GropiusDataFactory.eINSTANCE.createLocation();
                 URI uri = null;
-                if (rng.nextBoolean()) {
-                    uri = randomValidExistingResourceUriForJavaFile(rng);
-                }
+                uri = randomValidExistingResourceUriForJavaFile(rng);
                 if (uri == null) {
-                    uri = ResourcesPlugin.getWorkspace().getRoot().getLocationURI().resolve("projectX/Y/Z.java");
+                    uri = UriHelper.resourceURI("/projectX/Y/Z.java");
                 }
                 location.setResourcePath(uri);
                 if (rng.nextBoolean()) {
@@ -187,7 +185,7 @@ public class MockDataGenerator {
     private static URI randomValidExistingResourceUriForJavaFile(Random rng) {
         try {
             IFile file = findRandomJavaIFile(rng, ResourcesPlugin.getWorkspace().getRoot());
-            return file.getLocationURI();
+            return UriHelper.resourceURI(file);
         } catch (CoreException e) {
             Activator.logError("Error while searching for IFile", e);
             return null;
@@ -196,11 +194,13 @@ public class MockDataGenerator {
     
     private static IFile findRandomJavaIFile(Random rng, IContainer resource) throws CoreException {
         IResource[] members = resource.members();
+        if (members.length == 0)
+            return null;
         int startingIndex = rng.nextInt(members.length);
         int index = startingIndex;
         do {
             IResource member = members[index];
-            if (member instanceof IFile && member.getFileExtension().equals("java")) {
+            if (member instanceof IFile && "java".equals(member.getFileExtension())) {
                 return (IFile) member;
             } else if (member instanceof IContainer) {
                 IFile file = findRandomJavaIFile(rng, (IContainer) member);

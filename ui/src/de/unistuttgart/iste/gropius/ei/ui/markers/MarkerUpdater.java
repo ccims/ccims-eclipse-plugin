@@ -18,8 +18,9 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -28,6 +29,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.progress.UIJob;
 
 import de.unistuttgart.iste.gropius.ei.ui.Activator;
+import de.unistuttgart.iste.gropius.ei.ui.UriHelper;
 
 /**
  * Class responsible for updating the markers
@@ -144,26 +146,36 @@ public class MarkerUpdater {
         }
         
         private void doCreation(IssueMarkerIdentifier identifier) throws CoreException {
-            IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(identifier.getLocation());
-            for (IFile file : files) {
-                if (!file.exists()) {
-                    continue;
-                }
-                if (file.getProject() == null || !file.getProject().isOpen()) {
-                    continue;
-                }
-                
-                IMarker marker = file.createMarker(identifier.getMarkerId());
-                identifier.setMarkerAttributes(marker);
-                IMarker previous = MarkerUpdater.this.registry.put(identifier, marker);
-                if (previous != null && previous.exists()) {
-                    Activator.logWarning("Marker to create already existed. Will delete old one.", null);
-                    previous.delete();
-                }
-                break; // We are only interested in one marker. Just take the first for now.
+            String projectName = UriHelper.projectName(identifier.getLocation());
+            if(projectName == null) {
+                doCreation(ResourcesPlugin.getWorkspace().getRoot(), identifier);
+                return;
             }
-            // If creation fails, because no such file was found, just ignore it for now.
-            // Maybe eclipse resource is gone again
+            
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+            if (!project.exists() || !project.isOpen()) {
+                return;
+            }
+            String projectRelativePath = UriHelper.projectRelativePath(identifier.getLocation());
+            if (projectRelativePath == null) {
+                doCreation(project, identifier);
+                return;
+            }
+            IResource resource = project.findMember(projectRelativePath);
+            if (!resource.exists()) {
+                return;
+            }
+            doCreation(resource, identifier);
+        }
+        
+        private void doCreation(IResource resource, IssueMarkerIdentifier identifier) throws CoreException {
+            IMarker marker = resource.createMarker(identifier.getMarkerId());
+            identifier.setMarkerAttributes(marker);
+            IMarker previous = MarkerUpdater.this.registry.put(identifier, marker);
+            if (previous != null && previous.exists()) {
+                Activator.logWarning("Marker to create already existed. Will delete old one.", null);
+                previous.delete();
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ import org.eclipse.core.runtime.CoreException;
 import de.unistuttgart.iste.gropius.ei.data.CrossComponentIssue;
 import de.unistuttgart.iste.gropius.ei.data.Location;
 import de.unistuttgart.iste.gropius.ei.ui.IssueType;
+import de.unistuttgart.iste.gropius.ei.ui.UriHelper;
 
 /**
  * An imutable class with all information uniquely identifying an issue marker.
@@ -51,10 +52,9 @@ public class IssueMarkerIdentifier {
             throw new IllegalStateException("Location is not contained in an issue");
         }
         CrossComponentIssue issue = (CrossComponentIssue) location.eContainer();
-        // Make sure the URI is absolute. It should already be absolute, then do nothing.
-        // Else assume file scheme
-        URI absoluteUri = URI.create("file://").resolve(location.getResourcePath());
-        return new IssueMarkerIdentifier(absoluteUri, location.getLine(), issue.getTitle(),
+        // Make sure the URI is an eclipse resource URI. It should already be, but just in case.
+        URI platformResourceURI = UriHelper.convertToPlatformResourceUri(location.getResourcePath());
+        return new IssueMarkerIdentifier(platformResourceURI, location.getLine(), issue.getTitle(),
                 IssueType.getTypeOfIssue(issue));
     }
     
