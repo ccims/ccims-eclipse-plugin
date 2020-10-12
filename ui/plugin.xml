@@ -233,4 +233,15 @@
             name="Gropius Ei Preferences">
       </page>
    </extension>
+      <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="de.unistuttgart.iste.gropius.ei.ui.issueList"
+               relative="org.eclipse.ui.views.ContentOutline"
+               relationship="stack">
+         </view>
+      </perspectiveExtension>
+   </extension>
 </plugin>
