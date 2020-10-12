@@ -35,6 +35,12 @@ public class UiText extends NLS {
     public static String IssueList_ShowOwnOnlyAction_TooltipText;
     
     /** */
+    public static String IssueList_AddIssueAction_Text;
+    
+    /** */
+    public static String IssueList_AddIssueAction_TooltipText;
+    
+    /** */
 	public static String IssueList_FiltersSubMenu_Label;
     
     /** */
