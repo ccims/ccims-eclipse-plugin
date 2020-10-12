@@ -3,7 +3,7 @@
    <description name="Gropius EI Update Site" url="https://ccims.github.io/gropius.ei">
       The eclipse update site for Gropius EI
    </description>
-   <feature url="features/de.unistuttgart.iste.gropius.ei_1.0.0.202010121555.jar" id="de.unistuttgart.iste.gropius.ei" version="1.0.0.202010121555">
+   <feature url="features/de.unistuttgart.iste.gropius.ei_1.0.0.202010121620.jar" id="de.unistuttgart.iste.gropius.ei" version="1.0.0.202010121620">
       <category name="de.unistuttgart.iste.gropius"/>
    </feature>
    <category-def name="de.unistuttgart.iste.gropius" label="Gropius"/>
