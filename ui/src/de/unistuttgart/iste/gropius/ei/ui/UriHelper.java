@@ -114,6 +114,8 @@ public class UriHelper {
      * @throws IllegalArgumentException if the given URI is not a platform resource URI
      */
     public static String projectName(URI uri) {
+        if (uri == null)
+            return null;
         String[] allSegments = platformResourceUriPathSegments(uri);
         if (allSegments.length < 2)
             return null;
@@ -131,6 +133,8 @@ public class UriHelper {
      * @throws IllegalArgumentException if the given URI is not a platform resource URI
      */
     public static String projectRelativePath(URI uri) {
+        if (uri == null)
+            return null;
         String[] allSegments = platformResourceUriPathSegments(uri);
         if (allSegments.length < 3)
             return null;
