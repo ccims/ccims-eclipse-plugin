@@ -146,7 +146,8 @@ public class MarkerUpdater {
         private void doCreation(IssueMarkerIdentifier identifier) throws CoreException {
             IResource resource = UriHelper.findResource(identifier.getLocation());
             
-            if (!resource.exists() || (resource.getProject() != null && !resource.getProject().isOpen())) {
+            if (resource == null || !resource.exists()
+                    || (resource.getProject() != null && !resource.getProject().isOpen())) {
                 // If resource has no project, the resource is worksapce root.
                 // For worspace root wo do create a marker.
                 return;

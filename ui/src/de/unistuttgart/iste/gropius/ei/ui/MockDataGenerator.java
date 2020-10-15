@@ -185,6 +185,9 @@ public class MockDataGenerator {
     private static URI randomValidExistingResourceUriForJavaFile(Random rng) {
         try {
             IFile file = findRandomJavaIFile(rng, ResourcesPlugin.getWorkspace().getRoot());
+            if (file == null)
+                return null;
+            
             return UriHelper.resourceURI(file);
         } catch (CoreException e) {
             Activator.logError("Error while searching for IFile", e);

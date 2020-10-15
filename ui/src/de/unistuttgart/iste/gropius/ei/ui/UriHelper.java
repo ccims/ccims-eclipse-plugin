@@ -238,7 +238,7 @@ public class UriHelper {
      * 
      * @param uri The uri to get the resource for
      * 
-     * @return The resource for the given uri *
+     * @return The resource for the given uri or null
      */
     public static IResource findResource(URI uri) {
         String projectName = UriHelper.projectName(uri);
