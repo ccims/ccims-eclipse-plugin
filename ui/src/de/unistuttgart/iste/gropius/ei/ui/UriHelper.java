@@ -194,11 +194,14 @@ public class UriHelper {
      * 
      * @param original The URI to convert.
      * 
-     * @return The platform resource URI corresponding to the given URI
+     * @return The platform resource URI corresponding to the given URI or null if the original is null
      * 
      * @throws IllegalArgumentException - when the given URI cannot be converted
      */
     public static URI convertToPlatformResourceUri(URI original) {
+        if (original == null) {
+            return null;
+        }
         String path = "";
         if (original.isAbsolute()) {
             String scheme = original.getScheme();
