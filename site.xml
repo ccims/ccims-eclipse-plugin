@@ -9,5 +9,8 @@
    <feature url="features/de.unistuttgart.iste.gropius.ei_1.0.0.202010151513.jar" id="de.unistuttgart.iste.gropius.ei" version="1.0.0.202010151513">
       <category name="de.unistuttgart.iste.gropius"/>
    </feature>
+   <feature url="features/de.unistuttgart.iste.gropius.ei_1.0.0.202010181347.jar" id="de.unistuttgart.iste.gropius.ei" version="1.0.0.202010181347">
+      <category name="de.unistuttgart.iste.gropius"/>
+   </feature>
    <category-def name="de.unistuttgart.iste.gropius" label="Gropius"/>
 </site>
