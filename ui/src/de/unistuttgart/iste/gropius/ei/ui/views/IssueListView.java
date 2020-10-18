@@ -233,7 +233,7 @@ public class IssueListView extends SaveableTableFormView {
                                 String currentColumns = IssueListView.this.store.getString(prefName);
                                 if (!currentColumns.equals(this.lastRecreatedColumns)) {
                                     
-                                    IssueListView.this.getComposite().getParent().layout();
+                                    IssueListView.this.recreateComposite();
                                     this.lastRecreatedColumns = currentColumns;
                                 }
                             }
