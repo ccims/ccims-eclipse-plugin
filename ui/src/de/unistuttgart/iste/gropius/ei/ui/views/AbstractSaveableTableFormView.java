@@ -59,12 +59,15 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-
+        createTableFormComposite(parent);
+    }
+    
+    private void createTableFormComposite(Composite parent) {
         this.tableFormComposite = this.tableFormFactory
-			.createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
+                .createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
         this.tableFormComposite.update(getResource());
 
-		afterCreateViewer();
+        afterCreateViewer();
         this.tableFormComposite.setData(DATA_KEY_CONTAINING_VIEW, this);
 	}
 
@@ -122,7 +125,13 @@ public abstract class AbstractSaveableTableFormView extends AbstractSaveableView
                 child.dispose();
             }
         }
-        this.tableFormComposite = this.tableFormFactory
-                .createTableFormMasterDetailComposite(parent, SWT.BORDER, getEClass());
+        createTableFormComposite(parent);
+    }
+    
+    /**
+     * Recreates the form of this view by setting the selection of the table
+     */
+    public void recreateForm() {
+        getComposite().getViewer().setSelection(getComposite().getViewer().getSelection());
     }
 }

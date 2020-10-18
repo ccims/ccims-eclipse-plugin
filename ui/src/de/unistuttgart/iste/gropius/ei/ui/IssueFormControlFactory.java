@@ -92,7 +92,16 @@ public class IssueFormControlFactory extends FormControlFactory {
     public ControlObservablePair control_CrossComponentIssue_labels(EStructuralFeature feature) {
         MultiLabelRowLayoutMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
-                feature, this.proposalCreator, isReadonly(), getToolkit());
+                feature, this.proposalCreator, isReadonly(), getToolkit()) {
+            @Override
+            public void redrawControl() {
+                try {
+                    getContainingAbstractSaveableTableFormView(this).recreateForm();
+                } catch (IllegalStateException e) {
+                    Activator.logError("Could not refresh form", e);
+                }
+            }
+        };
         mfc.init();
         
         IObservableValue<?> target = new MultipleFeatureControlObservable<>(
@@ -110,7 +119,16 @@ public class IssueFormControlFactory extends FormControlFactory {
     public ControlObservablePair control_CrossComponentIssue_assignees(EStructuralFeature feature) {
         MultiLabelRowLayoutMultiFeatureFormControl mfc = new MultiLabelRowLayoutMultiFeatureFormControl(getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
-                feature, this.proposalCreator, isReadonly(), getToolkit());
+                feature, this.proposalCreator, isReadonly(), getToolkit()) {
+            @Override
+            public void redrawControl() {
+                try {
+                    getContainingAbstractSaveableTableFormView(this).recreateForm();
+                } catch (IllegalStateException e) {
+                    Activator.logError("Could not refresh form", e);
+                }
+            }
+        };
         mfc.init();
         
         IObservableValue<?> target = new MultipleFeatureControlObservable<>(
@@ -134,6 +152,14 @@ public class IssueFormControlFactory extends FormControlFactory {
                 getParent(),
                 this, this.labelProviderProvider.get(), (CrossComponentIssue) getOwner(),
                 feature, this.proposalCreator, isReadonly(), getToolkit()) {
+            @Override
+            public void redrawControl() {
+                try {
+                    getContainingAbstractSaveableTableFormView(this).recreateForm();
+                } catch (IllegalStateException e) {
+                    Activator.logError("Could not refresh form", e);
+                }
+            }
             
             @Override
             protected Location getLinkTarget(Location value) {
@@ -194,6 +220,15 @@ public class IssueFormControlFactory extends FormControlFactory {
                 getParent(),
                 this, this.labelProviderProvider.get(), getOwner(),
                 feature, this.proposalCreator, isReadonly(), getToolkit()) {
+            @Override
+            public void redrawControl() {
+                try {
+                    getContainingAbstractSaveableTableFormView(this).recreateForm();
+                } catch (IllegalStateException e) {
+                    Activator.logError("Could not refresh form", e);
+                }
+            }
+            
             @Override
             protected CrossComponentIssue getLinkTarget(CrossComponentIssue value) {
                 return value;

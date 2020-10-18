@@ -113,6 +113,7 @@ public abstract class MultiControlMultiFeatureFormControl<V, O extends EObject, 
                 List<?> result = openChangeDialog();
                 if (result != null) {
                     setValue(new StructuredSelection(result.toArray()));
+                    redrawControl();
                 }
             }
         });
@@ -169,6 +170,10 @@ public abstract class MultiControlMultiFeatureFormControl<V, O extends EObject, 
         for (int i = 0; i < valueCount; i++) {
             setControlValue(this.controls.get(i), values.get(i), i == valueCount - 1);
         }
+    }
+    
+    protected void redrawControl() {
+        this.container.redraw();
     }
     
     /**
