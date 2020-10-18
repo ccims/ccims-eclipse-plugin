@@ -516,7 +516,9 @@ public class FeatureEditorElementCreatorDialog extends Dialog {
     @Override
     public boolean close() {
         this.contentProvider.dispose();
-        this.objectBeingEdited.eAdapters().remove(this.objectEditedAdapter);
+        if (this.objectBeingEdited != null) {
+            this.objectBeingEdited.eAdapters().remove(this.objectEditedAdapter);
+        }
         return super.close();
     }
     
